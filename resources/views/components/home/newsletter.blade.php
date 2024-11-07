@@ -9,7 +9,7 @@
         </div>
         <div data-aos-duration="1300" data-aos="fade-left">
             <form action="">
-                <input type="email" placeholder="Enter Email Address"/>
+                <input type="email" placeholder="Enter Email Address" name=""/>
                 <button>Subscribe</button>
             </form>
         </div>

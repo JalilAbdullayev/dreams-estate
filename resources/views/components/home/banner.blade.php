@@ -17,25 +17,25 @@
                 <div data-aos-duration="1300" data-aos="fade-up" id="Buy" class="city">
                     <form action="" class="max-w-screen-xl mx-auto flex justify-center pb-10">
                         <div class="me-4 mt-8">
-                            <input class="keyword placeholder-gray-900" placeholder="Enter Keyword" type="text"/>
+                            <input class="keyword placeholder-gray-900" placeholder="Enter Keyword" type="text" name=""/>
                         </div>
                         <div class="me-3 mt-8">
-                            <select id="countries" class="block p-2.5">
+                            <select id="countries" class="block p-2.5" name="">
                                 <option value="all" selected>To make a choice</option>
                                 <option value="rent">Rent Property</option>
                                 <option value="sale">Buy Property</option>
                             </select>
                         </div>
                         <div class="me-3 mt-8">
-                            <input class="email placeholder-gray-900" type="email" placeholder="Email Address"/>
+                            <input class="email placeholder-gray-900" type="email" placeholder="Email Address" name=""/>
                         </div>
                         <div class="me-3 mt-8">
                             <input class="price placeholder-gray-900" type="text" placeholder="Min Price"
-                                   id="minPrice"/>
+                                   id="minPrice" name=""/>
                         </div>
                         <div class="me-3 mt-8">
                             <input class="price placeholder-gray-900" type="text" placeholder="Max Price"
-                                   id="maxPrice"/>
+                                   id="maxPrice" name=""/>
                         </div>
                         <div class="search flex justify-center items-center me-3 mt-8">
                             <button type="submit" class="cursor-pointer size-16">
