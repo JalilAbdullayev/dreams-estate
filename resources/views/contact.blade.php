@@ -1,9 +1,6 @@
 @extends('layouts.layout')
 @section('content')
     <x-layout.breadcrumb title="Contact"/>
-    <div>
-        <img src="front/img/line-bg.png" alt=""/>
-    </div>
     <section class="contact-section bg-[#f7f6ff] pt-20 pb-14">
         <div class="contact-content max-w-screen-xl mx-auto flex justify-between">
             <div>

@@ -1,4 +1,7 @@
 <section class="subscribe bg-[#f7f6ff]">
+    <div>
+        <img src="front/img/line-bg.png" alt=""/>
+    </div>
     <div class="news-letter-sec max-w-screen-xl mx-auto flex justify-between items-center" style="padding: 80px 0">
         <div data-aos-duration="1300" data-aos="fade-right">
             <h1>Sign Up for Our Newsletter</h1>

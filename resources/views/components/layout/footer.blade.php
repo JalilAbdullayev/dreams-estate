@@ -1,4 +1,7 @@
-<footer class="w-full py-5 bg-[#0D1329]">
+<footer class="w-full bg-[#0D1329]">
+    <div>
+        <img src="front/img/line-bg.png" alt=""/>
+    </div>
     <div class="mx-auto w-full max-w-screen-xl px-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
             <div data-aos-duration="1300" data-aos="fade-right" class="footer-content-heading mb-6 md:mb-0">

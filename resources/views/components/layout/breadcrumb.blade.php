@@ -4,7 +4,7 @@
         <h1>
             {{ $title }}
         </h1>
-        <ul class="flex ">
+        <ul class="flex">
             <li class="me-1">
                 <a href="{{ route('home') }}">
                     Home
@@ -17,5 +17,8 @@
                 {{ $title }}
             </li>
         </ul>
+    </div>
+    <div>
+        <img src="front/img/line-bg.png" alt="">
     </div>
 </section>
