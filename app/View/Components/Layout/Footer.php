@@ -20,6 +20,7 @@ class Footer extends Component {
     public function render(): View|Closure|string {
         $links = [
             ['name' => 'Home', 'url' => 'home'],
+            ['name' => 'Contact', 'url' => 'contact'],
         ];
         return view('components.layout.footer', compact('links'));
     }
