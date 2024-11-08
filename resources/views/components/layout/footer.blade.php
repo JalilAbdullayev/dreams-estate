@@ -25,7 +25,7 @@
                     <ul>
                         @foreach($links as $link)
                             <li class="mb-4">
-                                <a href="{{ route($link['url']) }}">
+                                <a href="{{ route($link['url']) }}" @class(['text-[#FCAF3D]' => Route::is($link['url'])])>
                                     <span>></span> {{ $link['name'] }}
                                 </a>
                             </li>

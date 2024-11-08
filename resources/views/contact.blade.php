@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title', 'Contact')
 @section('content')
     <x-layout.breadcrumb title="Contact"/>
     <section class="contact-section bg-[#f7f6ff] pt-20 pb-14">

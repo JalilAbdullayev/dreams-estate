@@ -21,6 +21,7 @@ class Footer extends Component {
         $links = [
             ['name' => 'Home', 'url' => 'home'],
             ['name' => 'Contact', 'url' => 'contact'],
+            ['name' => 'About', 'url' => 'about'],
         ];
         return view('components.layout.footer', compact('links'));
     }
