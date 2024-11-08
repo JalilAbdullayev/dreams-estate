@@ -23,6 +23,7 @@ class Footer extends Component {
             ['name' => 'Contact', 'url' => 'contact'],
             ['name' => 'About', 'url' => 'about'],
             ['name' => 'FAQ', 'url' => 'faq'],
+            ['name' => 'Blog', 'url' => 'blog'],
         ];
         return view('components.layout.footer', compact('links'));
     }

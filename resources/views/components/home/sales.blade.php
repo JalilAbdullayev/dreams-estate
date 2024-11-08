@@ -30,7 +30,7 @@
                                             <span>Featured</span>
                                         </div>
                                         <div
-                                            class="like size-9 me-4 flex justify-center items-center rounded-[50%] cursor-pointer border-2 border-white">
+                                            class="like size-9 me-4 flex justify-center items-center rounded-full cursor-pointer border-2 border-white">
                                             <i class="fa-regular fa-heart"></i>
                                         </div>
                                     </div>

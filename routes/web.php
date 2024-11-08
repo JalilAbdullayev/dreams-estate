@@ -9,6 +9,7 @@ Route::controller(SiteController::class)->group(function() {
     Route::get('contact', 'contact')->name('contact');
     Route::get('about', 'about')->name('about');
     Route::get('faq', 'faq')->name('faq');
+    Route::get('blog', 'blog')->name('blog');
 });
 
 Route::middleware('auth')->group(function() {

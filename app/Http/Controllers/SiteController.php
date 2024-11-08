@@ -20,4 +20,8 @@ class SiteController extends Controller {
     public function faq(): View {
         return view('faq');
     }
+
+    public function blog(): View {
+        return view('blog');
+    }
 }
