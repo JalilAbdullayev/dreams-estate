@@ -24,4 +24,12 @@ class SiteController extends Controller {
     public function blog(): View {
         return view('blog');
     }
+
+    public function property(): View {
+        return view('property');
+    }
+
+    public function sales(): View {
+        return view('sales');
+    }
 }

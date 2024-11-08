@@ -20,10 +20,11 @@ class Header extends Component {
     public function render(): View|Closure|string {
         $links = [
             ['name' => 'Home', 'url' => 'home'],
+            ['name' => 'Sales', 'url' => 'sales'],
+            ['name' => 'Blog', 'url' => 'blog'],
             ['name' => 'Contact', 'url' => 'contact'],
             ['name' => 'About', 'url' => 'about'],
             ['name' => 'FAQ', 'url' => 'faq'],
-            ['name' => 'Blog', 'url' => 'blog'],
         ];
         return view('components.layout.header', compact('links'));
     }

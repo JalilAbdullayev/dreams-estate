@@ -10,6 +10,8 @@ Route::controller(SiteController::class)->group(function() {
     Route::get('about', 'about')->name('about');
     Route::get('faq', 'faq')->name('faq');
     Route::get('blog', 'blog')->name('blog');
+    Route::get('property', 'property')->name('property');
+    Route::get('sales', 'sales')->name('sales');
 });
 
 Route::middleware('auth')->group(function() {
