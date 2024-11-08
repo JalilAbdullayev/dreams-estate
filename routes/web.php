@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +15,8 @@ Route::controller(SiteController::class)->group(function() {
     Route::get('sales', 'sales')->name('sales');
 });
 
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
+    Route::get('/', AdminController::class)->name('index');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
