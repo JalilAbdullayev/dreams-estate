@@ -17,13 +17,17 @@ class ContactPolicy {
         return false;
     }
 
-    public function update(User $user, Contact $contact): bool {}
+    public function update(User $user, Contact $contact): bool {
+        return $user->id === auth()->user()->id;
+    }
 
     public function delete(User $user, Contact $contact): bool {
         return false;
     }
 
-    public function restore(User $user, Contact $contact): bool {}
+    public function restore(User $user, Contact $contact): bool {
+        return $user->id === auth()->user()->id;
+    }
 
     public function forceDelete(User $user, Contact $contact): bool {
         return false;

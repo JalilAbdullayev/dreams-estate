@@ -17,13 +17,17 @@ class SettingsPolicy {
         return false;
     }
 
-    public function update(User $user, Settings $settings): bool {}
+    public function update(User $user, Settings $settings): bool {
+        return $user->id === auth()->user()->id;
+    }
 
     public function delete(User $user, Settings $settings): bool {
         return false;
     }
 
-    public function restore(User $user, Settings $settings): bool {}
+    public function restore(User $user, Settings $settings): bool {
+        return $user->id === auth()->user()->id;
+    }
 
     public function forceDelete(User $user, Settings $settings): bool {
         return false;

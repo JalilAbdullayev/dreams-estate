@@ -24,7 +24,7 @@
         </div>
     </div>
     <!-- End Bread crumb -->
-    <form class="card" method="POST" enctype="multipart/form-data">
+    <form class="card" method="POST">
         @csrf
         <div class="card-body">
             <div class="form-floating mb-3">

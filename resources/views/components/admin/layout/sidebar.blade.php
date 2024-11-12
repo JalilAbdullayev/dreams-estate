@@ -55,6 +55,14 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="{{ route('admin.faq.index') }}" aria-expanded="false">
+                        <i class="icon-question"></i>
+                        <span class="hide-menu">
+                            @lang('FAQ')
+                        </span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

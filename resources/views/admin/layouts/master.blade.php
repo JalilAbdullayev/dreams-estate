@@ -211,11 +211,9 @@
             handle: '#sortable-tbody tr',
             multiDrag: true,
             avoidImplicitDeselect: true,
-            onEnd: function(evt) {
+            onEnd: function() {
                 let allRows = $('#sortable-tbody tr');
-                let activeOrderData = [];
                 let orderData = [];
-
                 let dataIndexArray = [];
 
                 $(allRows).each(function(index, element) {

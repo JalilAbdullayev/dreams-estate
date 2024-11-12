@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SiteController;
@@ -28,6 +29,12 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
     Route::controller(ContactController::class)->name('contact')->prefix('contact')->group(function() {
         Route::get('/', 'index');
         Route::post('/', 'update');
+    });
+
+    Route::resource('faq', FAQController::class);
+    Route::controller(FAQController::class)->name('faq.')->prefix('faq')->group(function() {
+        Route::post('sort', 'sort')->name('sort');
+        Route::post('status', 'status')->name('status');
     });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
