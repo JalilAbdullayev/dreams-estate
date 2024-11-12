@@ -3,7 +3,7 @@
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a data-aos-duration="1300" data-aos="fade-right" href="{{ route('home') }}"
                class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="{{ asset('front/img/logo.svg')}}" class="" alt="Flowbite Logo"/>
+                <img src="{{ asset("storage/$settings->logo")}}" alt="{{ $settings->title }}"/>
             </a>
             <button data-aos-duration="1300" data-aos="fade-left" data-collapse-toggle="navbar-default" type="button"
                     class="inline-flex items-center p-2 size-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"

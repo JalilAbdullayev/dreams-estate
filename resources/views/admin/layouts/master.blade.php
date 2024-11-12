@@ -6,9 +6,9 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('storage/') }}"/>
+    <link rel="icon" href="{{ asset("storage/$settings->favicon") }}"/>
     <title>
-        @yield('title', 'Admin Panel')
+        @yield('title', 'Admin Panel') - {{ $settings->title }}
     </title>
     <link rel="stylesheet" href="{{ asset('back/node_modules/morrisjs/morris.css') }}"/>
     <link rel="stylesheet" href="{{ asset('back/node_modules/toast-master/css/jquery.toast.css') }}"/>
@@ -27,7 +27,7 @@
     <div class="loader">
         <div class="loader__figure"></div>
         <p class="loader__label">
-            Dreams Estate
+            {{ $settings->title }}
         </p>
     </div>
 </div>
@@ -40,7 +40,7 @@
             <div class="navbar-header d-flex justify-content-center align-items-center">
                 <a class="navbar-brand d-inline-block" href="{{ route('admin.index') }}" style="width: 30%">
                     <!-- Light Logo text -->
-                    <img src="{{ asset('storage/') }}" class="light-logo w-100" alt=""/>
+                    <img src="{{ asset("storage/$settings->logo") }}" class="light-logo w-100" alt=""/>
                 </a>
             </div>
             <!-- End Logo -->
@@ -81,7 +81,7 @@
     <footer class="footer">
         © 2024 {{ date('Y') > 2024 ? ' - ' . date('Y') : '' }}
         <a target="_blank" href="{{ route('home') }}">
-            Dreams Estate
+            {{ $settings->title }}
         </a>
     </footer>
     <!-- End footer -->
@@ -193,11 +193,12 @@
         deletePrompt('şəkli', route, 'Şəkil')
     }
 
-    @if(session('success'))
+    @session('success')
     successAlert('{{ session('success') }}');
-    @elseif(session('error'))
+    @endsession
+    @session('error')
     errorAlert('{{ session('error') }}')
-    @endif
+    @endsession
 
     $(document).ready(function() {
         $('#sortable-tbody').sortable({

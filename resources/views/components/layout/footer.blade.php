@@ -1,13 +1,13 @@
 <footer class="w-full bg-[#0D1329]">
     <div>
-        <img src="front/img/line-bg.png" alt=""/>
+        <img src="{{ asset('front/img/line-bg.png') }}" alt=""/>
     </div>
     <div class="mx-auto w-full max-w-screen-xl px-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
             <div data-aos-duration="1300" data-aos="fade-right" class="footer-content-heading mb-6 md:mb-0">
                 <a href="{{ route('home') }}" class="flex items-center">
                     <span class="self-center whitespace-nowrap">
-                        Get Our App
+                        <img src="{{ asset("storage/$settings->logo") }}" alt="{{ $settings->title }}"/>
                     </span>
                 </a>
                 <div class="social-links mt-12">
@@ -15,7 +15,11 @@
                         Connect with us
                     </h4>
                     <ul class="flex justify-between">
-                        <li class="me-2"><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li class="me-2">
+                            <a href="">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -36,16 +40,32 @@
                     <h2 class="mb-6 text-white uppercase">Explore</h2>
                     <ul class="">
                         <li class="mb-4">
-                            <a href="rent-property.html" class=""><span>></span> Rent Property</a>
+                            <a href="rent-property.html" class="">
+                                <span>
+                                    >
+                                </span> Rent Property
+                            </a>
                         </li>
                         <li class="mb-4">
-                            <a href="buy-property.html" class=""><span>></span> Buy Property</a>
+                            <a href="buy-property.html" class="">
+                                <span>
+                                    >
+                                </span> Buy Property
+                            </a>
                         </li>
                         <li class="mb-4">
-                            <a href="" class=""><span>></span> Sign In</a>
+                            <a href="{{ route('login') }}" class="">
+                                <span>
+                                    >
+                                </span> Sign In
+                            </a>
                         </li>
                         <li class="mb-4">
-                            <a href="" class=""><span>></span> Sign Up</a>
+                            <a href="{{ route('register') }}" class="">
+                                <span>
+                                    >
+                                </span> Sign Up
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -54,8 +74,10 @@
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
         <div class="sm:flex sm:items-center sm:justify-between">
         <span class="text-sm text-white sm:text-center">
-            © 2024 {{ date('Y') > 2024 ? '- ' . date('Y') : '' }} <a href="{{ route('home') }}" class="hover:underline">
-                Dreams Estate
+            © 2024 @if(date('Y') > 2024)
+                - {{ date('Y') }}
+            @endif <a href="{{ route('home') }}" class="hover:underline">
+                {{ $settings->title }}
             </a>. All Rights Reserved.
         </span>
             <div class="company-logo flex mt-4 items-center sm:justify-center sm:mt-0">
@@ -63,7 +85,7 @@
                     a product of
                 </p>
                 <a href="https://proton.az" target="_blank">
-                    <img src="front/img/company-logo.png" alt="Logo"/>
+                    <img src="front/img/company-logo.png" alt="Proton.Az"/>
                 </a>
             </div>
         </div>

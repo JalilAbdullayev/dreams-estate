@@ -1,5 +1,4 @@
 @extends('admin.layouts.master')
-@section('title', 'Home')
 @section('content')
     <!-- Bread crumb -->
     <div class="row page-titles">

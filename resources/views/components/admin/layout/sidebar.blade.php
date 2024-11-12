@@ -39,6 +39,14 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="{{ route('admin.settings') }}" aria-expanded="false">
+                        <i class="icons-Gears"></i>
+                        <span class="hide-menu">
+                            @lang('Settings')
+                        </span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
