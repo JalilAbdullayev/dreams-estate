@@ -18,7 +18,7 @@
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet"/>
-    @yield('css')
+    @stack('css')
     @vite([])
 </head>
 <body class="skin-default-dark fixed-layout">
@@ -129,7 +129,6 @@
     function errorAlert(message) {
         Swal.fire({
             icon: 'error',
-            @unless(Route::is('admin.users.create') || Route::is('admin.users.edit')) timer: 1500, @endunless
             background: '#303641',
             timerProgressBar: true,
             title: message,
@@ -258,6 +257,6 @@
         }
     })
 </script>
-@yield('js')
+@stack('js')
 </body>
 </html>

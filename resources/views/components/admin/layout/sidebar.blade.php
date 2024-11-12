@@ -47,6 +47,14 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="{{ route('admin.contact') }}" aria-expanded="false">
+                        <i class="icons-Phone-2"></i>
+                        <span class="hide-menu">
+                            @lang('Contact')
+                        </span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

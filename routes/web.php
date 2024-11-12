@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SiteController;
@@ -18,7 +19,13 @@ Route::controller(SiteController::class)->group(function() {
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', AdminController::class)->name('index');
+
     Route::controller(SettingsController::class)->name('settings')->prefix('settings')->group(function() {
+        Route::get('/', 'index');
+        Route::post('/', 'update');
+    });
+
+    Route::controller(ContactController::class)->name('contact')->prefix('contact')->group(function() {
         Route::get('/', 'index');
         Route::post('/', 'update');
     });

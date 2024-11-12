@@ -17,13 +17,13 @@
                     <h3>Product & Account Support</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis ligula eu lectus
                         vulputate porttitor sed feugiat nunc. Mauris ac consectetur ante,</p>
-                    <a href="">
+                    <a href="{{ route('faq') }}">
                         <button>Go to FAQ</button>
                     </a>
                 </div>
             </div>
             <div>
-                <img src="front/img/contact.jpg" alt="">
+                <img src="{{ asset('front/img/contact.jpg') }}" alt="">
             </div>
         </div>
     </section>

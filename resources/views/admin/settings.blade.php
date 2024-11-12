@@ -1,31 +1,11 @@
 @extends('admin.layouts.master')
 @section('title', __('Settings'))
-@section('css')
+@push('css')
     <link rel="stylesheet" href="{{ asset("back/node_modules/dropify/dist/css/dropify.min.css") }}"/>
-@endsection
+@endpush
 @section('content')
     <!-- Bread crumb -->
-    <div class="row page-titles">
-        <div class="col-md-5 align-self-center">
-            <h4 class="text-white-50">
-                @yield('title')
-            </h4>
-        </div>
-        <div class="col-md-7 align-self-center text-end">
-            <div class="d-flex justify-content-end align-items-center">
-                <ol class="breadcrumb justify-content-end">
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('admin.index') }}">
-                            @lang('Home')
-                        </a>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        @yield('title')
-                    </li>
-                </ol>
-            </div>
-        </div>
-    </div>
+    <x-admin.layout.breadcrumb/>
     <!-- End Bread crumb -->
     <form class="card" method="POST" enctype="multipart/form-data">
         @csrf
@@ -108,11 +88,11 @@
         </div>
     </form>
 @endsection
-@section('js')
+@push('js')
     <script src="{{ asset("back/node_modules/dropify/dist/js/dropify.min.js") }}"></script>
     <script>
         $(document).ready(function() {
             $('.dropify').dropify();
         });
     </script>
-@endsection
+@endpush
