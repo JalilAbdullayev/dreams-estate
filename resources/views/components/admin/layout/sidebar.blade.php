@@ -39,38 +39,40 @@
                         </span>
                     </a>
                 </li>
-                <li>
-                    <a class="waves-effect waves-dark" href="{{ route('admin.settings') }}" aria-expanded="false">
-                        <i class="icons-Gears"></i>
-                        <span class="hide-menu">
+                @if(auth()->user()->role === 'admin')
+                    <li>
+                        <a class="waves-effect waves-dark" href="{{ route('admin.settings') }}" aria-expanded="false">
+                            <i class="icons-Gears"></i>
+                            <span class="hide-menu">
                             @lang('Settings')
                         </span>
-                    </a>
-                </li>
-                <li>
-                    <a class="waves-effect waves-dark" href="{{ route('admin.contact') }}" aria-expanded="false">
-                        <i class="icons-Phone-2"></i>
-                        <span class="hide-menu">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-dark" href="{{ route('admin.contact') }}" aria-expanded="false">
+                            <i class="icons-Phone-2"></i>
+                            <span class="hide-menu">
                             @lang('Contact')
                         </span>
-                    </a>
-                </li>
-                <li>
-                    <a class="waves-effect waves-dark" href="{{ route('admin.about') }}" aria-expanded="false">
-                        <i class="icon-info"></i>
-                        <span class="hide-menu">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-dark" href="{{ route('admin.about') }}" aria-expanded="false">
+                            <i class="icon-info"></i>
+                            <span class="hide-menu">
                             @lang('About')
                         </span>
-                    </a>
-                </li>
-                <li>
-                    <a class="waves-effect waves-dark" href="{{ route('admin.faq.index') }}" aria-expanded="false">
-                        <i class="icon-question"></i>
-                        <span class="hide-menu">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-dark" href="{{ route('admin.faq.index') }}" aria-expanded="false">
+                            <i class="icon-question"></i>
+                            <span class="hide-menu">
                             @lang('FAQ')
                         </span>
-                    </a>
-                </li>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
     </div>

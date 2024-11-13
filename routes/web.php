@@ -7,6 +7,7 @@ use App\Http\Controllers\FAQController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SiteController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(SiteController::class)->group(function() {
@@ -22,26 +23,28 @@ Route::controller(SiteController::class)->group(function() {
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', AdminController::class)->name('index');
 
-    Route::controller(SettingsController::class)->name('settings')->prefix('settings')->group(function() {
-        Route::get('/', 'index');
-        Route::post('/', 'update');
-    });
+    Route::middleware(AdminMiddleware::class)->group(function() {
+        Route::controller(SettingsController::class)->name('settings')->prefix('settings')->group(function() {
+            Route::get('/', 'index');
+            Route::post('/', 'update');
+        });
 
-    Route::controller(ContactController::class)->name('contact')->prefix('contact')->group(function() {
-        Route::get('/', 'index');
-        Route::post('/', 'update');
-    });
+        Route::controller(ContactController::class)->name('contact')->prefix('contact')->group(function() {
+            Route::get('/', 'index');
+            Route::post('/', 'update');
+        });
 
-    Route::resource('faq', FAQController::class);
-    Route::controller(FAQController::class)->name('faq.')->prefix('faq')->group(function() {
-        Route::post('sort', 'sort')->name('sort');
-        Route::post('status', 'status')->name('status');
-    });
+        Route::resource('faq', FAQController::class);
+        Route::controller(FAQController::class)->name('faq.')->prefix('faq')->group(function() {
+            Route::post('sort', 'sort')->name('sort');
+            Route::post('status', 'status')->name('status');
+        });
 
-    Route::controller(AboutController::class)->name('about')->prefix('about')->group(function() {
-        Route::get('/', 'index');
-        Route::post('/', 'update');
-        Route::delete('image/{id}', 'deleteImage')->name('.delete-image');
+        Route::controller(AboutController::class)->name('about')->prefix('about')->group(function() {
+            Route::get('/', 'index');
+            Route::post('/', 'update');
+            Route::delete('image/{id}', 'deleteImage')->name('.delete-image');
+        });
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

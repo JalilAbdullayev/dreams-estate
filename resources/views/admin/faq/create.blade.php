@@ -25,6 +25,11 @@
                         @lang('Title')
                     </label>
                 </div>
+                @error('title')
+                <div class="alert alert-danger">
+                    {{ $message }}
+                </div>
+                @enderror
                 <div class="mb-3">
                     <label class="form-label text-white-50" for="description">
                         @lang('Description')
@@ -32,6 +37,11 @@
                     <textarea class="form-control ckeditor" placeholder="@lang('Description')" id="description"
                               required name="description"></textarea>
                 </div>
+                @error('description')
+                <div class="alert alert-danger">
+                    {{ $message }}
+                </div>
+                @enderror
                 <div class="form-check form-switch mb-3">
                     <input type="checkbox" class="form-check-input" name="status" id="status" value="1"/>
                     <label class="form-check-label text-white-50" for="status">
