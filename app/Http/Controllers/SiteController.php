@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
+use App\Models\FAQ;
 use Illuminate\View\View;
 
 class SiteController extends Controller {
@@ -14,11 +16,13 @@ class SiteController extends Controller {
     }
 
     public function about(): View {
-        return view('about');
+        $about = About::first();
+        return view('about', compact('about'));
     }
 
     public function faq(): View {
-        return view('faq');
+        $faqs = FAQ::active()->get();
+        return view('faq', compact('faqs'));
     }
 
     public function blog(): View {

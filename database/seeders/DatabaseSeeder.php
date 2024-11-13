@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\About;
 use App\Models\Contact;
 use App\Models\Settings;
 use App\Models\User;
@@ -25,6 +26,9 @@ class DatabaseSeeder extends Seeder {
         }
         if(Contact::first() === null) {
             Contact::factory()->create();
+        }
+        if(About::first() === null) {
+            About::factory()->create();
         }
     }
 }

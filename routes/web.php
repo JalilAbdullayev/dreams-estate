@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FAQController;
@@ -36,9 +37,16 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
         Route::post('sort', 'sort')->name('sort');
         Route::post('status', 'status')->name('status');
     });
+
+    Route::controller(AboutController::class)->name('about')->prefix('about')->group(function() {
+        Route::get('/', 'index');
+        Route::post('/', 'update');
+        Route::delete('image/{id}', 'deleteImage')->name('.delete-image');
+    });
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
+require_once __DIR__ . '/auth.php';

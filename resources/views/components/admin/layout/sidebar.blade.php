@@ -56,6 +56,14 @@
                     </a>
                 </li>
                 <li>
+                    <a class="waves-effect waves-dark" href="{{ route('admin.about') }}" aria-expanded="false">
+                        <i class="icon-info"></i>
+                        <span class="hide-menu">
+                            @lang('About')
+                        </span>
+                    </a>
+                </li>
+                <li>
                     <a class="waves-effect waves-dark" href="{{ route('admin.faq.index') }}" aria-expanded="false">
                         <i class="icon-question"></i>
                         <span class="hide-menu">

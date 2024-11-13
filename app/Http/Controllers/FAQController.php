@@ -34,7 +34,8 @@ class FAQController extends Controller {
         FAQ::create([
             'title' => $request->title,
             'description' => $request->description,
-            'status' => $request->status ? 1 : 0
+            'status' => $request->status ? 1 : 0,
+            'order' => FAQ::count() > 0 ? FAQ::latest('order')->first()->order + 1 : 1
         ]);
         return redirect()->route('admin.faq.index')->withSuccess('FAQ created successfully.');
     }

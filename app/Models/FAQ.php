@@ -22,4 +22,8 @@ class FAQ extends Model {
             'status' => 'boolean',
         ];
     }
+
+    public function scopeActive() {
+        return $this->whereStatus(1)->orderBy('order');
+    }
 }
