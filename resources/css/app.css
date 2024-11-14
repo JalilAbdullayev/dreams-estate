@@ -5,14 +5,15 @@
 @tailwind utilities;
 
 html, body {
-    width: 100vw;
-    overflow-x: hidden;
+    @apply w-screen overflow-x-hidden;
+}
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 nav {
-    width: 100%;
-    position: fixed;
-    z-index: 999;
+    @apply w-full fixed z-50;
 }
 
 .active {
@@ -20,7 +21,6 @@ nav {
 }
 
 nav ul li {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 15px;
     font-weight: 600;
 }
@@ -36,7 +36,6 @@ nav .sign-up {
 }
 
 nav .sign-up a {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 15px;
     font-weight: 600;
     color: white;
@@ -68,7 +67,6 @@ nav .sign-in {
 }
 
 nav .sign-in a {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 15px;
     font-weight: 600;
     color: #8A909A;
@@ -89,29 +87,19 @@ nav .sign-in:hover a {
     transition: 1s;
 }
 
-nav .add a div {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #6C60FE;
-    margin-right: 7px;
-}
-
 nav .add a {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    color: #8A909A;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 40px;
-}
+    @apply text-[#8A909A] text-[15px] font-semibold leading-10;
 
-nav .add a div i {
-    color: white;
-    font-size: 12px;
+    div {
+        @apply size-5 rounded-full bg-[#6C60FE] mr-[7px];
+
+        i {
+            @apply text-white text-xs;
+        }
+    }
 }
 
 .home-banner .title h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 700;
     font-size: 56px;
     font-weight: 700;
@@ -126,7 +114,6 @@ nav .add a div i {
 }
 
 .home-banner .title h4 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 500;
     font-size: 18px;
     color: #0E0E46;
@@ -140,7 +127,6 @@ nav .add a div i {
 }
 
 .w3-bar .w3-bar-item {
-    font-family: "Plus Jakarta Sans", sans-serif;
     width: 180px;
     height: max-content;
     border-radius: 10px;
@@ -164,7 +150,6 @@ nav .add a div i {
 }
 
 .w3-container form .keyword {
-    font-family: "Plus Jakarta Sans", sans-serif;
     width: 207px;
     min-height: 60px;
     border-radius: 10px;
@@ -177,7 +162,6 @@ nav .add a div i {
 }
 
 .w3-container form #countries {
-    font-family: "Plus Jakarta Sans", sans-serif;
     width: 369px;
     min-height: 60px;
     background-color: #F6F6F9;
@@ -187,7 +171,6 @@ nav .add a div i {
 }
 
 .w3-container form .email {
-    font-family: "Plus Jakarta Sans", sans-serif;
     width: 300px;
     min-height: 60px;
     border-radius: 10px;
@@ -200,7 +183,6 @@ nav .add a div i {
 }
 
 .w3-container form .price {
-    font-family: "Plus Jakarta Sans", sans-serif;
     width: 120px;
     min-height: 60px;
     border-radius: 10px;
@@ -235,21 +217,18 @@ nav .add a div i {
 }
 
 .sales .start h2 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-weight: 700;
     font-size: 32px;
 }
 
 .sales .start p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 18px;
     font-weight: 500;
     color: #8A909A;
 }
 
 .sales .card .card-img span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: white;
@@ -266,7 +245,6 @@ nav .add a div i {
 }
 
 .sales .card .card-img .price span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 600;
     font-size: 24px;
 }
@@ -276,14 +254,12 @@ nav .add a div i {
 }
 
 .sales .card .star p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #8A909A;
 }
 
 .sales .card h3 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-size: 24px;
     font-weight: 700;
@@ -295,7 +271,6 @@ nav .add a div i {
 }
 
 .sales .card p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #8A909A;
@@ -306,13 +281,11 @@ nav .add a div i {
 }
 
 .sales .card .item span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 500;
     color: #6b6b6b;
 }
 
 .sales .card .time p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 15px;
     font-weight: 700;
     color: #8A909A;
@@ -341,7 +314,6 @@ nav .add a div i {
 }
 
 .sales .all button {
-    font-family: "Plus Jakarta Sans", sans-serif;
     width: 196px;
     height: 48px;
     background-color: #6C60FE;
@@ -358,7 +330,6 @@ nav .add a div i {
 }
 
 .time .profile a {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-size: 18px;
     font-weight: 600;
@@ -371,7 +342,6 @@ nav .add a div i {
 }
 
 .time .book button {
-    font-family: "Plus Jakarta Sans", sans-serif;
     width: 106px;
     height: 46px;
     background-color: #6C60FE;
@@ -388,7 +358,6 @@ nav .add a div i {
 }
 
 .worth h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 46px;
     font-weight: 700;
     color: white;
@@ -396,7 +365,6 @@ nav .add a div i {
 }
 
 .worth p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 18px;
     font-weight: 500;
     color: white;
@@ -434,7 +402,6 @@ nav .add a div i {
 }
 
 .main-property-sec .buy-property a {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-size: 22px;
     font-weight: 600;
@@ -493,7 +460,6 @@ nav .add a div i {
 }
 
 .main-property-sec .sell-property a {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-size: 22px;
     font-weight: 600;
@@ -542,7 +508,6 @@ nav .add a div i {
 }
 
 .main-property-sec .rent-property a {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-size: 22px;
     font-weight: 600;
@@ -592,7 +557,6 @@ nav .add a div i {
 }
 
 .testimonials .start h2 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: white;
     font-weight: 700;
     font-size: 32px;
@@ -600,7 +564,6 @@ nav .add a div i {
 }
 
 .testimonials .start p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #f2f2f2;
     font-weight: 500;
     font-size: 18px;
@@ -608,7 +571,6 @@ nav .add a div i {
 }
 
 .testimonials .swiper-slide .card p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 16px;
     color: #8A909A;
     text-align: center;
@@ -616,7 +578,6 @@ nav .add a div i {
 }
 
 .testimonials .swiper-slide .card a {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-weight: 600;
     font-size: 20px;
@@ -646,14 +607,12 @@ nav .add a div i {
 }
 
 .fag h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-weight: 700;
     font-size: 32px;
 }
 
 .fag p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #8A909A;
     font-weight: 500;
     font-size: 18px;
@@ -661,21 +620,18 @@ nav .add a div i {
 }
 
 .fag .accordion button span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-size: 18px;
     font-weight: 500;
 }
 
 .latest-blog .start h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-weight: 700;
     font-size: 32px;
 }
 
 .latest-blog .start p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #8A909A;
     font-weight: 500;
     font-size: 18px;
@@ -684,25 +640,16 @@ nav .add a div i {
 }
 
 .latest-blog .advantages {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    padding: 18px;
-    background-color: #6C60FE;
-    border-radius: 10px;
-    height: 32px;
-    width: 120px;
+    @apply w-fit flex justify-items-center items-center bg-[#6C60FE] rounded-[10px] p-[18px] h-8;
 }
 
 .latest-blog .advantages span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: white;
     font-weight: 700;
     font-size: 15px;
 }
 
 .latest-blog .card h5 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 600;
     font-size: 24px;
     color: #0E0E46;
@@ -714,7 +661,6 @@ nav .add a div i {
 }
 
 .latest-blog .card p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 500;
     font-size: 15px;
     color: #8A909A;
@@ -733,14 +679,12 @@ nav .add a div i {
 }
 
 .subscribe h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-size: 32px;
     font-weight: 700;
 }
 
 .subscribe p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #8A909A;
     font-size: 18px;
     font-weight: 500;
@@ -754,7 +698,6 @@ nav .add a div i {
 }
 
 .subscribe input {
-    font-family: "Plus Jakarta Sans", sans-serif;
     width: 500px;
     min-height: 50px;
     font-size: 14px;
@@ -772,7 +715,6 @@ nav .add a div i {
 }
 
 .subscribe form button {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 700;
     font-size: 15px;
     background-color: #6C60FE;
@@ -788,14 +730,12 @@ nav .add a div i {
 }
 
 footer .footer-content-heading span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #FFF;
     font-size: 22px;
     font-weight: 600;
 }
 
 footer .footer-content-heading .social-links h4 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 22px;
     font-weight: 600;
     color: #FFF;
@@ -822,7 +762,6 @@ footer .footer-content-heading .social-links ul li:hover {
 }
 
 footer .company-logo p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #FFF;
     font-size: 14px;
     font-weight: 500;
@@ -830,7 +769,6 @@ footer .company-logo p {
 }
 
 footer .footer-widget-list h2 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #FFF;
     font-size: 22px;
     font-weight: 600;
@@ -842,7 +780,6 @@ footer .footer-widget-list span {
 }
 
 footer .footer-widget-list ul li {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #f2f2f2;
     font-size: 16px;
     font-weight: 500;
@@ -932,7 +869,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .about-banner h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 34px;
     text-transform: capitalize;
     font-weight: 700;
@@ -940,7 +876,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .about-banner li {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: white;
     font-size: 14px;
     font-weight: 500;
@@ -958,14 +893,12 @@ footer .footer-widget-list ul li:hover {
 }
 
 .aboutus-section .about-content h6 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 15px;
     color: #6C60FE;
     font-weight: 700;
 }
 
 .aboutus-section .about-content h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 42px;
     max-width: 657px;
     color: #0E0E46;
@@ -973,7 +906,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .aboutus-section .about-content p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 16px;
     max-width: 1280px;
     color: #8A909A;
@@ -1005,28 +937,24 @@ footer .footer-widget-list ul li:hover {
 }
 
 .counter-sec .counter-box h3 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 32px;
     color: #0E0E46;
     font-weight: 700;
 }
 
 .counter-sec .counter-box h5 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 18px;
     color: #8A909A;
     font-weight: 500;
 }
 
 .book-section .book-listing h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 44px;
     font-weight: 700;
     color: white;
 }
 
 .book-section .book-content p:nth-child(1) {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: white;
     max-width: 600px;
     margin-bottom: 20px;
@@ -1037,20 +965,17 @@ footer .footer-widget-list ul li:hover {
 }
 
 .book-section .book-content p:nth-child(2) {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: white;
     max-width: 600px;
     margin-bottom: 20px;
 }
 
 .book-section .book-content p:nth-child(3) {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: white;
     max-width: 600px;
 }
 
 .blog-banner h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 34px;
     text-transform: capitalize;
     font-weight: 700;
@@ -1058,7 +983,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .blog-banner li {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: white;
     font-size: 14px;
     font-weight: 500;
@@ -1076,7 +1000,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .detail-banner h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 34px;
     text-transform: capitalize;
     font-weight: 700;
@@ -1084,7 +1007,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .detail-banner li {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: white;
     font-size: 14px;
     font-weight: 500;
@@ -1111,7 +1033,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .contact-btn button:nth-child(1) {
-    font-family: "Plus Jakarta Sans", sans-serif;
     background-color: #FD3358;
     color: white;
     padding: 10px 40px 10px 40px;
@@ -1121,7 +1042,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .contact-btn button:nth-child(2) {
-    font-family: "Plus Jakarta Sans", sans-serif;
     background-color: #F6F4FF;
     color: #0E0E46;
     padding: 10px 30px 10px 30px;
@@ -1149,7 +1069,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .theiaStickySidebar .user-active .user-name h4 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 20px;
     font-weight: 700;
     color: #0E0E46;
@@ -1161,7 +1080,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .theiaStickySidebar .user-active .user-name p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: #8A909A;
@@ -1175,7 +1093,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .theiaStickySidebar input {
-    font-family: "Plus Jakarta Sans", sans-serif;
     margin-top: 20px;
     padding: 10px 15px;
     background: #F6F6F9;
@@ -1197,7 +1114,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .theiaStickySidebar textarea {
-    font-family: "Plus Jakarta Sans", sans-serif;
     margin-top: 20px;
     padding: 10px 15px;
     background: #F6F6F9;
@@ -1219,7 +1135,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .theiaStickySidebar form button {
-    font-family: "Plus Jakarta Sans", sans-serif;
     width: 100%;
     padding: 11px 15px;
     font-weight: 700;
@@ -1239,7 +1154,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .theiaStickySidebar form .call {
-    font-family: "Plus Jakarta Sans", sans-serif;
     padding: 10px 60px 10px 40px;
     background: #F6F6F9;
     color: #8A909A;
@@ -1255,7 +1169,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .theiaStickySidebar form .wp {
-    font-family: "Plus Jakarta Sans", sans-serif;
     background: #F6F6F9;
     padding: 10px 40px 10px 40px;
     color: #8A909A;
@@ -1287,7 +1200,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .accordion .property-overview li p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: #8A909A;
@@ -1299,35 +1211,30 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .accordion .property-address li {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 700;
     color: #8A909A;
     margin: 0 20px 14px 0;
 }
 
 .buy-detailview .accordion .property-address li span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 500;
     color: #8A909A;
     margin: 0 20px 14px 0;
 }
 
 .buy-detailview .accordion .property-details li {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 800;
     color: #8A909A;
     margin: 0 20px 14px 0;
 }
 
 .buy-detailview .accordion .property-details li span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 500;
     color: #8A909A;
     margin: 0 20px 14px 0;
 }
 
 .buy-detailview .accordion .amenities-list li {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #8A909A;
@@ -1347,7 +1254,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .buy span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     padding: 5px 10px;
     display: inline-block;
     color: #FFF;
@@ -1364,7 +1270,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .appartment span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     padding: 5px 10px;
     display: inline-block;
     color: #FFF;
@@ -1374,7 +1279,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .buy-btn h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 28px;
     margin-top: 10px;
     color: #0E0E46;
@@ -1382,7 +1286,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .buy-btn p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #8A909A;
@@ -1390,7 +1293,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .latest-update h5 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 15px;
     color: #6C60FE;
     font-weight: 700;
@@ -1398,7 +1300,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-detailview .latest-update p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     margin-bottom: 7px;
     font-size: 28px;
     font-weight: 600;
@@ -1422,7 +1323,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-banner h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 34px;
     text-transform: capitalize;
     font-weight: 700;
@@ -1430,7 +1330,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .buy-banner li {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: white;
     font-size: 14px;
     font-weight: 500;
@@ -1448,7 +1347,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-banner h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 34px;
     text-transform: capitalize;
     font-weight: 700;
@@ -1456,7 +1354,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-banner li {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: white;
     font-size: 14px;
     font-weight: 500;
@@ -1474,7 +1371,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-section .card h3 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 600;
     font-size: 26px;
     margin: 0 0 16px;
@@ -1482,7 +1378,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-section .card p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 500;
     font-size: 16px;
     margin: 0 0 16px;
@@ -1491,7 +1386,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-section .card button {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 700;
     font-size: 15px;
     background-color: #6C60FE;
@@ -1514,7 +1408,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-info-sec .info-form h3 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 600;
     font-size: 26px;
     color: #0E0E46;
@@ -1522,14 +1415,12 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-info-sec .info-form .form-group label {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-size: 14px;
     font-weight: 500;
 }
 
 .contact-info-sec .info-form .form-group input {
-    font-family: "Plus Jakarta Sans", sans-serif;
     background-color: #F6F6F9;
     border: 1px solid #f4f4f4;
     font-size: 14px;
@@ -1549,14 +1440,12 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-info-sec .info-form .form-group-name label {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-size: 14px;
     font-weight: 500;
 }
 
 .contact-info-sec .info-form .form-group-name input {
-    font-family: "Plus Jakarta Sans", sans-serif;
     background-color: #F6F6F9;
     border: 1px solid #f4f4f4;
     font-size: 14px;
@@ -1576,7 +1465,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-info-sec .info-form .form-group select {
-    font-family: "Plus Jakarta Sans", sans-serif;
     background-color: #F6F6F9;
     border: 1px solid #f4f4f4;
     font-size: 14px;
@@ -1594,14 +1482,12 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-info-sec .info-form .form-group-area label {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-size: 14px;
     font-weight: 500;
 }
 
 .contact-info-sec .info-form .form-group-area textarea {
-    font-family: "Plus Jakarta Sans", sans-serif;
     background-color: #F6F6F9;
     border: 1px solid #f4f4f4;
     font-size: 14px;
@@ -1621,7 +1507,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-info-sec .info-form button {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 700;
     font-size: 15px;
     background-color: #6C60FE;
@@ -1644,7 +1529,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-info-sec .info h3 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 600;
     font-size: 26px;
     color: #0E0E46;
@@ -1665,7 +1549,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-info-sec .info .contact h4 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 20px;
     font-weight: 600;
     margin: 0 0 10px;
@@ -1673,7 +1556,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .contact-info-sec .info .contact a {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #8A909A;
 }
 
@@ -1688,7 +1570,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .fag-banner h1 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 34px;
     text-transform: capitalize;
     font-weight: 700;
@@ -1696,7 +1577,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .fag-banner li {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: white;
     font-size: 14px;
     font-weight: 500;
@@ -1718,7 +1598,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .filter .fillteredOfSale .card .card-img span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: white;
@@ -1726,7 +1605,6 @@ footer .footer-widget-list ul li:hover {
 
 
 .filter .fillteredOfSale .card .card-img span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: white;
@@ -1743,7 +1621,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .filter .fillteredOfSale .card .card-img .price span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 600;
     font-size: 24px;
 }
@@ -1753,14 +1630,12 @@ footer .footer-widget-list ul li:hover {
 }
 
 .filter .fillteredOfSale .card .star p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #8A909A;
 }
 
 .filter .fillteredOfSale .card h3 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     color: #0E0E46;
     font-size: 24px;
     font-weight: 700;
@@ -1772,7 +1647,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .filter .fillteredOfSale .card p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #8A909A;
@@ -1783,13 +1657,11 @@ footer .footer-widget-list ul li:hover {
 }
 
 .filter .fillteredOfSale .card .item span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 500;
     color: #6b6b6b;
 }
 
 .filter .fillteredOfSale .card .time p {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 15px;
     font-weight: 700;
     color: #8A909A;
@@ -1818,7 +1690,6 @@ footer .footer-widget-list ul li:hover {
 }
 
 .filter .fillteredOfSale .all button {
-    font-family: "Plus Jakarta Sans", sans-serif;
     width: 196px;
     height: 48px;
     background-color: #6C60FE;
@@ -1840,14 +1711,12 @@ footer .footer-widget-list ul li:hover {
 }
 
 .filter .price span {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 600;
     font-size: 24px;
     color: #FFF;
 }
 
 .filter h3 {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 700;
     color: #0E0E46;
     font-size: 24px;

@@ -72,6 +72,23 @@
                         </span>
                         </a>
                     </li>
+                    <li>
+                        <a class="waves-effect waves-dark" href="{{ route('admin.categories.index') }}"
+                           aria-expanded="false">
+                            <i class="icon-folder"></i>
+                            <span class="hide-menu">
+                            @lang('Categories')
+                        </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-dark" href="{{ route('admin.blog.index') }}" aria-expanded="false">
+                            <i class="icon-docs"></i>
+                            <span class="hide-menu">
+                            @lang('Blog')
+                        </span>
+                        </a>
+                    </li>
                 @endif
             </ul>
         </nav>

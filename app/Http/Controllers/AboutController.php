@@ -30,26 +30,8 @@ class AboutController extends Controller {
         $about->section_status = $request->section_status ? 1 : 0;
         $about->section_title = $request->section_title;
         $about->section_text = $request->section_text;
-        if($request->hasFile('images')) {
-            $existingImages = $about->images ? json_decode($about->images, true, 512, JSON_THROW_ON_ERROR) : [];
-            $newImages = [];
-            foreach($request->file('images') as $image) {
-                $name = explode('.', $image->getClientOriginalName());
-                $date = date('Y_m_d_H_i_s');
-                $id = Str::uuid();
-                $img = Str::slug($name[0]) . '_' . $date . '.' . $image->extension();
-                $image->move('storage/about/', $img);
-                $newImages[] = [
-                    'id' => $id,
-                    'image' => $img
-                ];
-            }
-            $allImages = array_merge($existingImages, $newImages);
-            $about->images = json_encode($allImages, JSON_THROW_ON_ERROR);
-        }
-        if($request->hasFile('section_image')) {
-            $this->singleImg($request, 'section_image', 'about', $about);
-        }
+        $this->multipleImgs($request, $about, 'images', 'about');
+        $this->singleImg($request, 'section_image', 'about', $about);
         $about->save();
         return back()->withSuccess('About updated successfully');
     }

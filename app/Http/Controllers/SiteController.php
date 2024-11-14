@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Blog;
 use App\Models\FAQ;
 use Illuminate\View\View;
 
@@ -26,7 +27,8 @@ class SiteController extends Controller {
     }
 
     public function blog(): View {
-        return view('blog');
+        $blogs = Blog::active()->get();
+        return view('blog', compact('blogs'));
     }
 
     public function property(): View {

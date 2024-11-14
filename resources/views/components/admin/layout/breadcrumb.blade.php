@@ -1,4 +1,4 @@
-@props(['create' => false, 'route' => '', 'parent' => false, 'parent_route' => '', 'parent_title' => ''])
+@props(['route' => null, 'parent_route' => null, 'parent_title' => null])
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
         <h4 class="text-white-50">
@@ -15,23 +15,23 @@
                         </a>
                     </li>
                 @endunless
-                @if($parent)
+                @isset($parent_title)
                     <li class="breadcrumb-item">
                         <a href="{{ route($parent_route) }}">
                             @lang($parent_title)
                         </a>
                     </li>
-                @endif
+                @endisset
                 <li class="breadcrumb-item active">
                     @yield('title')
                 </li>
             </ol>
-            @if($create)
+            @isset($route)
                 <a href="{{ route($route) }}"
                    class="btn btn-success d-none d-lg-block m-l-15 text-white">
                     <i class="ti-plus"></i> {{ __('Create new') }}
                 </a>
-            @endif
+            @endisset
         </div>
     </div>
 </div>

@@ -12,7 +12,7 @@
 @endpush
 @section('content')
     <!-- Bread crumb -->
-    <x-admin.layout.breadcrumb parent="true" parent_route="admin.faq.index" parent_title="FAQ"/>
+    <x-admin.layout.breadcrumb parent_route="admin.faq.index" parent_title="FAQ"/>
     <!-- End Bread crumb -->
     <div class="card">
         <div class="card-body">

@@ -8,7 +8,7 @@
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
-    <x-admin.layout.breadcrumb create="true" route="admin.faq.create"/>
+    <x-admin.layout.breadcrumb route="admin.faq.create"/>
     <!-- ============================================================== -->
     <!-- End Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->

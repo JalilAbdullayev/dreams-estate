@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FAQController;
@@ -51,6 +52,13 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
             Route::post('sort', 'sort')->name('sort');
             Route::post('status', 'status')->name('status');
         });
+    });
+
+    Route::resource('blog', BlogController::class);
+    Route::controller(BlogController::class)->name('blog.')->prefix('blog')->group(function() {
+        Route::post('sort', 'sort')->name('sort');
+        Route::post('status', 'status')->name('status');
+        Route::delete('image/{blog}/{id}', 'deleteImage')->name('delete-image');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

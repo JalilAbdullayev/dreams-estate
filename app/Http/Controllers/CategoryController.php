@@ -72,11 +72,11 @@ class CategoryController extends Controller {
         return response()->json(['success' => true]);
     }
 
-    public function status(): void {
-        $this->changeStatus(Category::class);
+    public function status(CategoryRequest $request): void {
+        $this->changeStatus($request, Category::class);
     }
 
-    public function sort(): void {
-        $this->changeOrder(Category::class);
+    public function sort(CategoryRequest $request): void {
+        $this->changeOrder($request, Category::class);
     }
 }

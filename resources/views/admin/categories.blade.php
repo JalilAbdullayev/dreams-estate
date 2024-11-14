@@ -109,11 +109,11 @@
                         @enderror
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default waves-effect" data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">
                             Close
                         </button>
-                        <button type="submit" class="btn btn-danger waves-effect waves-light text-white">
-                            Save changes
+                        <button type="submit" class="btn btn-primary waves-effect waves-light text-white">
+                            Create
                         </button>
                     </div>
                 </form>
