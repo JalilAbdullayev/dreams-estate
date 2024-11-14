@@ -2,6 +2,14 @@
 @section('title', __('About'))
 @push('css')
     <link rel="stylesheet" href="{{ asset("back/node_modules/dropify/dist/css/dropify.min.css") }}"/>
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}"/>
+    <style>
+        textarea {
+            display: block;
+            height: 5rem;
+        }
+    </style>
 @endpush
 @section('content')
     <!-- Bread crumb -->
@@ -38,7 +46,7 @@
                 <label for="text" class="form-label text-white-50">
                     @lang('Text')
                 </label>
-                <textarea type="text" class="form-control" name="text" id="text" rows="5"
+                <textarea class="form-control ckeditor" name="text" id="text" rows="5"
                           placeholder="@lang('Text')" required maxlength="255">{{ $about->text }}</textarea>
             </div>
             @error('text')
@@ -62,7 +70,7 @@
                 <label for="section_text" class="form-label text-white-50">
                     @lang('Section text')
                 </label>
-                <textarea class="form-control" name="section_text" id="section_text" required rows="5"
+                <textarea class="form-control ckeditor" name="section_text" id="section_text" required rows="5"
                           placeholder="@lang('Section text')">{{ $about->section_text }}</textarea>
             </div>
             @error('section_text')
@@ -123,6 +131,8 @@
 @endsection
 @push('js')
     <script src="{{ asset("back/node_modules/dropify/dist/js/dropify.min.js") }}"></script>
+    <script src="{{ asset('back/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('back/ckeditor/samples/js/sample.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('.dropify').dropify();
@@ -145,5 +155,12 @@
                 }
             })
         });
+
+        const createCKEditor = id => CKEDITOR.replace(id, {
+            extraAllowedContent: 'div',
+            height: 150,
+        });
+
+        const ckeditor1 = createCKEditor('ckeditor');
     </script>
 @endpush

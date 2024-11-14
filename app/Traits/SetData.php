@@ -4,12 +4,11 @@ namespace App\Traits;
 
 use Exception;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\DB;
 
 trait SetData {
-    public function changeOrder(HttpRequest $request, $model): JsonResponse {
-        $order_data = $request['data'];
+    public function changeOrder($model): JsonResponse {
+        $order_data = request('data');
         try {
             DB::beginTransaction();
             foreach($order_data as $data) {
@@ -24,8 +23,8 @@ trait SetData {
         }
     }
 
-    public function changeStatus(HttpRequest $request, $model): JsonResponse {
-        $data = $model::findOrFail($request->id);
+    public function changeStatus($model): JsonResponse {
+        $data = $model::findOrFail(request()->id);
         $status = $data->status;
         $data->status = $status ? 0 : 1;
         $data->save();

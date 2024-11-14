@@ -74,11 +74,11 @@ class FAQController extends Controller {
         return response()->json(['success' => true]);
     }
 
-    public function sort(FAQRequest $request) {
-        $this->changeOrder($request, FAQ::class);
+    public function sort(): void {
+        $this->changeOrder(FAQ::class);
     }
 
-    public function status(FAQRequest $request) {
-        $this->changeStatus($request, FAQ::class);
+    public function status(): void {
+        $this->changeStatus(FAQ::class);
     }
 }

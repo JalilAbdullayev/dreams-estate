@@ -87,6 +87,7 @@
     <!-- End footer -->
 </div>
 <!-- End Wrapper -->
+@stack('modal')
 <!-- All Jquery -->
 <script src="{{ asset("back/node_modules/jquery/dist/jquery.min.js") }}"></script>
 <!-- Bootstrap popper Core JavaScript -->

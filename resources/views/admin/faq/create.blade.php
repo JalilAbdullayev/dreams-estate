@@ -59,12 +59,10 @@
     <script src="{{ asset('back/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('back/ckeditor/samples/js/sample.js') }}"></script>
     <script>
-        function createCKEditor(id) {
-            CKEDITOR.replace(id, {
-                extraAllowedContent: 'div',
-                height: 150,
-            });
-        }
+        const createCKEditor = id => CKEDITOR.replace(id, {
+            extraAllowedContent: 'div',
+            height: 150,
+        });
 
         const ckeditor1 = createCKEditor('ckeditor');
     </script>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\ProfileController;
@@ -44,6 +45,11 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
             Route::get('/', 'index');
             Route::post('/', 'update');
             Route::delete('image/{id}', 'deleteImage')->name('.delete-image');
+        });
+        Route::resource('categories', CategoryController::class);
+        Route::controller(CategoryController::class)->name('categories.')->prefix('categories')->group(function() {
+            Route::post('sort', 'sort')->name('sort');
+            Route::post('status', 'status')->name('status');
         });
     });
 
