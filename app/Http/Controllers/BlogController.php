@@ -20,10 +20,10 @@ class BlogController extends Controller {
      * Display a listing of the resource.
      */
     public function index(): View {
-        if(auth()->user()->role === 'admin') {
+        if(auth()->user()->isAdmin()) {
             $blogs = Blog::orderBy('order')->get();
         } else {
-            $blogs = Blog::whereUserId(auth()->user()->id)->orderBy('order')->get();
+            $blogs = auth()->user()->blogs()->get();
         }
         return view('admin.blog.index', compact('blogs'));
     }
@@ -32,7 +32,7 @@ class BlogController extends Controller {
      * Show the form for creating a new resource.
      */
     public function create(): View {
-        $categories = Category::orderBy('order')->get();
+        $categories = Category::active()->get();
         return view('admin.blog.create', compact('categories'));
     }
 
@@ -68,7 +68,10 @@ class BlogController extends Controller {
      * Show the form for editing the specified resource.
      */
     public function edit(Blog $blog): View {
-        $categories = Category::orderBy('order')->get();
+        if(auth()->user()->cannot('update', $blog)) {
+            abort(403);
+        }
+        $categories = Category::active()->get();
         return view('admin.blog.edit', compact('blog', 'categories'));
     }
 
@@ -77,26 +80,29 @@ class BlogController extends Controller {
      * @throws JsonException
      */
     public function update(BlogRequest $request, Blog $blog): RedirectResponse {
-        if($blog->user_id === auth()->user()->id || auth()->user()->role === 'admin') {
-            $blog->title = $request->title;
-            $blog->slug = Str::slug($request->title);
-            $blog->description = $request->description;
-            $blog->keywords = $request->keywords;
-            $blog->text = $request->text;
-            $blog->status = $request->status ? 1 : 0;
-            $blog->category_id = $request->category_id;
-            $this->singleImg($request, 'image', 'blog', $blog);
-            $this->multipleImgs($request, $blog, 'images', 'blog');
-            $blog->save();
-            return redirect()->route('admin.blog.index')->withSuccess('Blog updated successfully');
+        if(auth()->user()->cannot('update', $blog)) {
+            abort(403);
         }
-        return redirect()->route('admin.blog.index')->withError('You do not have permission to update this blog');
+        $blog->title = $request->title;
+        $blog->slug = Str::slug($request->title);
+        $blog->description = $request->description;
+        $blog->keywords = $request->keywords;
+        $blog->text = $request->text;
+        $blog->status = $request->status ? 1 : 0;
+        $blog->category_id = $request->category_id;
+        $this->singleImg($request, 'image', 'blog', $blog);
+        $this->multipleImgs($request, $blog, 'images', 'blog');
+        $blog->save();
+        return redirect()->route('admin.blog.index')->withSuccess('Blog updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Blog $blog): JsonResponse {
+        if(auth()->user()->cannot('delete', $blog)) {
+            abort(403);
+        }
         $blog->delete();
         return response()->json();
     }
@@ -113,7 +119,7 @@ class BlogController extends Controller {
      * @throws JsonException
      */
     public function deleteImage(int $blogId, string $id): JsonResponse {
-        $blog = Blog::whereUserId(auth()->user()->id)->findOrFail($blogId)->first();
+        $blog = auth()->user()->blogs()->findOrFail($blogId)->first();
         $images = json_decode($blog->images, true, 512, JSON_THROW_ON_ERROR);
         foreach($images as $key => $image) {
             if($image['id'] === $id) {

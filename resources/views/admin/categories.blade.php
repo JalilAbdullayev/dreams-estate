@@ -60,7 +60,8 @@
                             </td>
                             <td>
                                 <div class="form-check form-switch">
-                                    <input type="checkbox" @checked($category->status) class="form-check-input"/>
+                                    <input type="checkbox" @checked($category->status) class="form-check-input"
+                                           id="status"/>
                                 </div>
                             </td>
                             <td>

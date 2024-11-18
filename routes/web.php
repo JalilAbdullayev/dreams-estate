@@ -7,10 +7,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SiteController;
 use App\Http\Middleware\AdminMiddleware;
-use Illuminate\Support\Facades\Route;
 
 Route::controller(SiteController::class)->group(function() {
     Route::get('/', 'index')->name('home');
@@ -52,6 +52,7 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
             Route::post('sort', 'sort')->name('sort');
             Route::post('status', 'status')->name('status');
         });
+        Route::post('properties/verify', [PropertyController::class, 'verify'])->name('properties.verify');
     });
 
     Route::resource('blog', BlogController::class);
@@ -60,6 +61,9 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
         Route::post('status', 'status')->name('status');
         Route::delete('image/{blog}/{id}', 'deleteImage')->name('delete-image');
     });
+
+    Route::resource('properties', PropertyController::class);
+    Route::post('status', [PropertyController::class, 'status'])->name('properties.status');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

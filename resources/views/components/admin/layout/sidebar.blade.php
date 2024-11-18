@@ -39,7 +39,7 @@
                         </span>
                     </a>
                 </li>
-                @if(auth()->user()->role === 'admin')
+                @if(auth()->user()->isAdmin())
                     <li>
                         <a class="waves-effect waves-dark" href="{{ route('admin.settings') }}" aria-expanded="false">
                             <i class="icons-Gears"></i>
@@ -81,15 +81,23 @@
                         </span>
                         </a>
                     </li>
-                    <li>
-                        <a class="waves-effect waves-dark" href="{{ route('admin.blog.index') }}" aria-expanded="false">
-                            <i class="icon-docs"></i>
-                            <span class="hide-menu">
+                @endif
+                <li>
+                    <a class="waves-effect waves-dark" href="{{ route('admin.blog.index') }}" aria-expanded="false">
+                        <i class="icon-docs"></i>
+                        <span class="hide-menu">
                             @lang('Blog')
                         </span>
-                        </a>
-                    </li>
-                @endif
+                    </a>
+                </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="{{ route('admin.properties.index') }}" aria-expanded="false">
+                        <i class="icons-Home"></i>
+                        <span class="hide-menu">
+                            @lang('Properties')
+                        </span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

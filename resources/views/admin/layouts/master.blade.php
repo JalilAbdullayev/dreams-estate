@@ -170,7 +170,7 @@
     }
 
     function statusAlert(route) {
-        $('.form-check-input').change(function() {
+        $('.form-check-input#status').change(function() {
             let id = $(this).closest('tr').attr('id');
             $.ajax({
                 url: route,

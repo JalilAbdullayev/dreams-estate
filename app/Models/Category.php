@@ -19,4 +19,8 @@ class Category extends Model {
             'status' => 'boolean',
         ];
     }
+
+    public function scopeActive() {
+        $this->whereStatus(1)->orderBy('order');
+    }
 }

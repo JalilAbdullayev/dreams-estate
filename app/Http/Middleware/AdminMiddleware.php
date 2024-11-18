@@ -12,7 +12,7 @@ class AdminMiddleware {
      * @param Closure(Request): (Response) $next
      */
     public function handle(Request $request, Closure $next): Response {
-        if(auth()->user()->role !== 'admin') {
+        if(!auth()->user()->isAdmin()) {
             return redirect()->route('login');
         }
         return $next($request);
