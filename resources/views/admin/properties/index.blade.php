@@ -78,6 +78,10 @@
                                class="btn btn-outline-warning">
                                 <i class="ti-pencil-alt"></i>
                             </a>
+                            <a href="{{ route('admin.properties.images.index', $property->id) }}"
+                               class="btn btn-outline-purple">
+                                <i class="ti-gallery"></i>
+                            </a>
                             <button class="btn btn-outline-danger">
                                 <i class="ti-trash"></i>
                             </button>

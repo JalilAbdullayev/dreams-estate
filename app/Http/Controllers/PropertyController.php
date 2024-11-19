@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PropertyRequest;
 use App\Models\Category;
 use App\Models\Property;
+use App\Models\PropertyImage;
 use App\Traits\SetData;
 use App\Traits\UploadImage;
 use Illuminate\Http\JsonResponse;
@@ -42,7 +43,7 @@ class PropertyController extends Controller {
         $property = new Property;
         $property->title = $request->title;
         if(Property::whereSlug(Str::slug($request->title))->exists()) {
-            $count = Property::whereSlugLike(Str::slug($request->title) . '-%')->count();
+            $count = Property::whereSlug('like' . Str::slug($request->title) . '-%')->count();
             $property->slug = Str::slug($request->title) . '-' . ($count + 1);
         } else {
             $property->slug = Str::slug($request->title);
@@ -68,6 +69,7 @@ class PropertyController extends Controller {
         $property->user_id = auth()->user()->id;
         $this->singleImg($request, 'image', 'properties', $property);
         $property->save();
+        $this->uploadImages($request, $property);
         return redirect()->route('admin.properties.index');
     }
 
@@ -115,6 +117,7 @@ class PropertyController extends Controller {
             'price' => $request->price,
             'category_id' => $request->category_id
         ]);
+        $this->uploadImages($request, $property);
         return redirect()->route('admin.properties.index')->withSuccess('Property updated successfully');
     }
 
@@ -139,5 +142,17 @@ class PropertyController extends Controller {
         $data->verified = $verified ? 0 : 1;
         $data->save();
         return response()->json(['success' => true]);
+    }
+
+    protected function uploadImages($request, Property $property): void {
+        if($request->file('images')) {
+            foreach($request->file('images') as $image) {
+                $propertyImage = new PropertyImage;
+                $propertyImage->property_id = $property->id;
+                $propertyImage->image = $image->store('properties', 'public');
+                $propertyImage->order = PropertyImage::count() > 0 ? PropertyImage::latest('order')->first()->order + 1 : 1;
+                $propertyImage->save();
+            }
+        }
     }
 }

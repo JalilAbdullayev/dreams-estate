@@ -30,6 +30,7 @@ class PropertyRequest extends FormRequest {
             'sale_type' => ['nullable', 'boolean'],
             'status' => ['nullable', 'boolean'],
             'verified' => ['nullable', 'boolean'],
+            'images' => ['nullable']
         ];
     }
 

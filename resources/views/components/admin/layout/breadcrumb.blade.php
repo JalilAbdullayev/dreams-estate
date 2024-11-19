@@ -32,6 +32,12 @@
                     <i class="ti-plus"></i> {{ __('Create new') }}
                 </a>
             @endisset
+            @if(Route::is('admin.properties.images.index'))
+                <button type="button" class="btn btn-primary m-l-15" data-bs-toggle="modal"
+                        data-bs-target="#newImageModal">
+                    <i class="fas fa-plus"></i> Upload Image(s)
+                </button>
+            @endif
         </div>
     </div>
 </div>

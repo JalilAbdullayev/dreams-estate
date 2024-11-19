@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\PropertyImageController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SiteController;
 use App\Http\Middleware\AdminMiddleware;
@@ -36,7 +37,10 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
             Route::post('/', 'update');
         });
 
-        Route::resource('faq', FAQController::class);
+        Route::resources([
+            'faq' => FAQController::class,
+            'categories' => CategoryController::class
+        ]);
         Route::controller(FAQController::class)->name('faq.')->prefix('faq')->group(function() {
             Route::post('sort', 'sort')->name('sort');
             Route::post('status', 'status')->name('status');
@@ -47,23 +51,35 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
             Route::post('/', 'update');
             Route::delete('image/{id}', 'deleteImage')->name('.delete-image');
         });
-        Route::resource('categories', CategoryController::class);
+
         Route::controller(CategoryController::class)->name('categories.')->prefix('categories')->group(function() {
             Route::post('sort', 'sort')->name('sort');
             Route::post('status', 'status')->name('status');
         });
+
         Route::post('properties/verify', [PropertyController::class, 'verify'])->name('properties.verify');
     });
 
-    Route::resource('blog', BlogController::class);
-    Route::controller(BlogController::class)->name('blog.')->prefix('blog')->group(function() {
-        Route::post('sort', 'sort')->name('sort');
-        Route::post('status', 'status')->name('status');
-        Route::delete('image/{blog}/{id}', 'deleteImage')->name('delete-image');
+    Route::resources([
+        'blog' => BlogController::class,
+        'properties' => PropertyController::class
+    ]);
+    Route::name('blog.')->prefix('blog')->group(function() {
+        Route::controller(BlogController::class)->group(function() {
+            Route::post('sort', 'sort')->name('sort');
+            Route::post('status', 'status')->name('status');
+            Route::delete('image/{blog}/{id}', 'deleteImage')->name('delete-image');
+        });
     });
 
-    Route::resource('properties', PropertyController::class);
     Route::post('status', [PropertyController::class, 'status'])->name('properties.status');
+    Route::name('properties.images.')->prefix('properties/images')->controller(PropertyImageController::class)->group(function() {
+        Route::get('{id}', 'index')->name('index');
+        Route::post('status', 'status')->name('status');
+        Route::post('sort', 'sort')->name('sort');
+        Route::post('{id}', 'store')->name('store');
+        Route::delete('delete/{id}', 'delete')->name('delete');
+    });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
