@@ -21,8 +21,8 @@ class SettingsController extends Controller {
         $settings->author = $request->author;
         $settings->description = $request->description;
         $settings->keywords = $request->keywords;
-        $this->singleImg($request, 'logo', null, $settings);
-        $this->singleImg($request, 'favicon', null, $settings);
+        $this->singleImg($request, 'logo', 'settings', $settings);
+        $this->singleImg($request, 'favicon', 'settings', $settings);
         $settings->save();
         return back()->withSuccess('Settings updated successfully');
     }

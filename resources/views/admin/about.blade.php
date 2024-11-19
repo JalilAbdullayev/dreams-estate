@@ -116,7 +116,7 @@
                     @lang('Section image')
                 </label>
                 <input type="file" name="section_image" id="section_image" class="dropify" data-show-remove="false"
-                       accept="image/*" data-default-file="{{ asset(Storage::url("about/$about->section_image")) }}"/>
+                       accept="image/*" data-default-file="{{ asset("storage/about/$about->section_image") }}"/>
             </div>
             @error('section_image')
             <div class="alert alert-danger">

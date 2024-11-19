@@ -63,7 +63,7 @@
                     Favicon
                 </label>
                 <input type="file" name="favicon" id="favicon" class="dropify" data-show-remove="false"
-                       accept="image/*" data-default-file="{{ asset(Storage::url($settings->favicon)) }}"/>
+                       accept="image/*" data-default-file="{{ asset("storage/settings/$settings->favicon") }}"/>
             </div>
             @error('favicon')
             <div class="alert alert-danger">
@@ -75,7 +75,7 @@
                     @lang('Logo')
                 </label>
                 <input type="file" name="logo" id="logo" class="dropify" data-show-remove="false"
-                       accept="image/*" data-default-file="{{ asset(Storage::url($settings->logo)) }}"/>
+                       accept="image/*" data-default-file="{{ asset("storage/settings/$settings->logo") }}"/>
             </div>
             @error('logo')
             <div class="alert alert-danger">

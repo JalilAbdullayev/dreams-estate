@@ -253,8 +253,8 @@
                     <label for="image" class="form-label text-white-50">
                         @lang('Image')
                     </label>
-                    <input type="file" name="image" id="image" class="dropify" data-show-remove="false"
-                           accept="image/*" data-default-file="{{ asset("storage/properties/$property->image") }}"/>
+                    <input type="file" name="image" id="image" class="dropify" data-show-remove="false" accept="image/*"
+                           data-default-file="{{ asset("storage/properties/$property->image") }}"/>
                 </div>
                 @error('image')
                 <div class="alert alert-danger">

@@ -7,7 +7,7 @@
             <div data-aos-duration="1300" data-aos="fade-right" class="footer-content-heading mb-6 md:mb-0">
                 <a href="{{ route('home') }}" class="flex items-center">
                     <span class="self-center whitespace-nowrap">
-                        <img src="{{ asset("storage/$settings->logo") }}" alt="{{ $settings->title }}"/>
+                        <img src="{{ asset("storage/settings/$settings->logo") }}" alt="{{ $settings->title }}"/>
                     </span>
                 </a>
                 <div class="social-links mt-12">

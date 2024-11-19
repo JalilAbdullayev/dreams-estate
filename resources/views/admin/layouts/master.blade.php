@@ -6,7 +6,7 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!-- Favicon icon -->
-    <link rel="icon" href="{{ asset("storage/$settings->favicon") }}"/>
+    <link rel="icon" href="{{ asset("storage/settings/$settings->favicon") }}"/>
     <title>
         @yield('title', 'Admin Panel') - {{ $settings->title }}
     </title>
@@ -40,7 +40,7 @@
             <div class="navbar-header d-flex justify-content-center align-items-center">
                 <a class="navbar-brand d-inline-block" href="{{ route('admin.index') }}" style="width: 30%">
                     <!-- Light Logo text -->
-                    <img src="{{ asset("storage/$settings->logo") }}" class="light-logo w-100" alt=""/>
+                    <img src="{{ asset("storage/settings/$settings->logo") }}" class="light-logo w-100" alt=""/>
                 </a>
             </div>
             <!-- End Logo -->

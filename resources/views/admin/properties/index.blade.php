@@ -17,6 +17,11 @@
         <table id="myTable" class="table table-striped border">
             <thead>
             <tr>
+                @if(auth()->user()->isAdmin())
+                    <th>
+                        @lang('User')
+                    </th>
+                @endif
                 <th>
                     @lang('Title')
                 </th>
@@ -46,6 +51,11 @@
             <tbody>
             @foreach ($properties as $property)
                 <tr id="{{ $property->id }}">
+                    @if(auth()->user()->isAdmin())
+                        <td>
+                            {{ $property->user()->first()->name }}
+                        </td>
+                    @endif
                     <td>
                         {{ $property->title }}
                     </td>
