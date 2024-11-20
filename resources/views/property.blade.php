@@ -14,7 +14,7 @@
                     <x-property.carousel :images="$property->images"/>
                     <x-property.details :property="$property"/>
                 </div>
-                <x-property.sidebar :user="$property->user"/>
+                <x-property.sidebar :user="$property->user" :property="$property"/>
             </div>
         </div>
     </section>

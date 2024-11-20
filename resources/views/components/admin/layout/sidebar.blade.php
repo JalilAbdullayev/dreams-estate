@@ -108,6 +108,17 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="{{ route('admin.customer_messages.index') }}"
+                       aria-expanded="false">
+                        <i class="icons-Envelope"></i>
+                        <span class="hide-menu">
+                            @if(auth()->user()->isAdmin())
+                                Customer
+                            @endif Messages
+                        </span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

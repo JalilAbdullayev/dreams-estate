@@ -36,11 +36,20 @@
                        value="{{ $message->email }}"/>
             </div>
             <div class="my-3">
-                <label class="form-label text-white-50" for="subject">
-                    @lang('Subject')
-                </label>
-                <input class="form-control" id="subject" placeholder="@lang('Subject')" type="text" disabled
-                       value="{{ $message->subject }}"/>
+                @if(Route::is('admin.messages.index'))
+                    <label class="form-label text-white-50" for="subject">
+                        @lang('Subject')
+                    </label>
+                    <input class="form-control" id="subject" placeholder="@lang('Subject')" type="text" disabled
+                           value="{{ $message->subject }}"/>
+                @else
+                    <h5 class="text-white-50">
+                        Property
+                    </h5>
+                    <a href="{{ route('property', $message->property->slug) }}" target="_blank">
+                        {{ $message->property->title }}
+                    </a>
+                @endif
             </div>
             <div class="mb-3">
                 <label class="form-label text-white-50" for="description">

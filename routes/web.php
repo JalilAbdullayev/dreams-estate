@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CustomerMessageController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
@@ -25,6 +26,7 @@ Route::controller(SiteController::class)->group(function() {
 });
 
 Route::post('send', [MessageController::class, 'store'])->name('send');
+Route::post('send_message', [CustomerMessageController::class, 'store'])->name('send_message');
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', AdminController::class)->name('index');
@@ -68,6 +70,12 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
             Route::get('{id}', 'show')->name('show');
             Route::delete('delete/{id}', 'delete')->name('delete');
         });
+    });
+
+    Route::controller(CustomerMessageController::class)->name('customer_messages.')->prefix('customer_messages')->group(function() {
+        Route::get('/', 'index')->name('index');
+        Route::get('{id}', 'show')->name('show');
+        Route::delete('delete/{id}', 'delete')->name('delete');
     });
 
     Route::resources([
