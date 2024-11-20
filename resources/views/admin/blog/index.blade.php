@@ -41,7 +41,7 @@
                 <tr id="{{ $blog->id }}" data-id="{{ $blog->id }}" data-order="{{ $blog->order }}">
                     @if(auth()->user()->isAdmin())
                         <td>
-                            {{ $blog->user()->first()->name }}
+                            {{ $blog->user->name }}
                         </td>
                     @endif
                     <td>

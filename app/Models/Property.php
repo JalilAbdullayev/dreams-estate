@@ -34,6 +34,7 @@ class Property extends Model {
         'status',
         'verified',
         'user_id',
+        'verified_at'
     ];
 
     public function category(): BelongsTo {
@@ -46,6 +47,10 @@ class Property extends Model {
 
     public function images(): HasMany {
         return $this->hasMany(PropertyImage::class)->orderBy('order');
+    }
+
+    public function scopeActive() {
+        return $this->whereVerified(1)->whereStatus(1);
     }
 
     protected function casts(): array {

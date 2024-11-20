@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Blog;
 use App\Models\FAQ;
+use App\Models\Property;
 use Illuminate\View\View;
 
 class SiteController extends Controller {
@@ -31,11 +32,13 @@ class SiteController extends Controller {
         return view('blog', compact('blogs'));
     }
 
-    public function property(): View {
-        return view('property');
+    public function property(string $slug): View {
+        $property = Property::active()->whereSlug($slug)->first();
+        return view('property', compact('property'));
     }
 
     public function sales(): View {
-        return view('sales');
+        $properties = Property::active()->get();
+        return view('sales', compact('properties'));
     }
 }

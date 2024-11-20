@@ -41,31 +41,8 @@ class PropertyController extends Controller {
      */
     public function store(PropertyRequest $request): RedirectResponse {
         $property = new Property;
-        $property->title = $request->title;
-        if(Property::whereSlug(Str::slug($request->title))->exists()) {
-            $count = Property::whereSlug('like' . Str::slug($request->title) . '-%')->count();
-            $property->slug = Str::slug($request->title) . '-' . ($count + 1);
-        } else {
-            $property->slug = Str::slug($request->title);
-        }
-        $property->description = $request->description;
-        $property->keywords = $request->keywords;
-        $property->text = $request->text;
-        $property->address = $request->address;
-        $property->city = $request->city;
-        $property->region = $request->region;
-        $property->area = $request->area;
-        $property->floor = $request->floor;
-        $property->bedroom = $request->bedroom;
-        $property->bathroom = $request->bathroom;
-        $property->garage = $request->garage;
-        $property->garage_size = $request->garage_size;
-        $property->year = $request->year;
-        $property->status = $request->status ? 1 : 0;
-        $property->sale_type = $request->sale_type ? 1 : 0;
-        $property->type = $request->type ? 1 : 0;
-        $property->price = $request->price;
-        $property->category_id = $request->category_id;
+        $this->setData($request, $property);
+        $this->setSlug($request, $property);
         $property->user_id = auth()->user()->id;
         $this->singleImg($request, 'image', 'properties', $property);
         $property->save();
@@ -98,26 +75,13 @@ class PropertyController extends Controller {
         if(auth()->user()->cannot('update', $property)) {
             abort(403);
         }
-        $property->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'address' => $request->address,
-            'city' => $request->city,
-            'region' => $request->region,
-            'area' => $request->area,
-            'floor' => $request->floor,
-            'bedroom' => $request->bedroom,
-            'bathroom' => $request->bathroom,
-            'garage' => $request->garage,
-            'garage_size' => $request->garage_size,
-            'year' => $request->year,
-            'status' => $request->status ? 1 : 0,
-            'sale_type' => $request->sale_type ? 1 : 0,
-            'type' => $request->type ? 1 : 0,
-            'price' => $request->price,
-            'category_id' => $request->category_id
-        ]);
+        $this->setData($request, $property);
+        if($property->title !== $request->title) {
+            $this->setSlug($request, $property);
+        }
+        $this->singleImg($request, 'image', 'properties', $property);
         $this->uploadImages($request, $property);
+        $property->save();
         return redirect()->route('admin.properties.index')->withSuccess('Property updated successfully');
     }
 
@@ -137,14 +101,15 @@ class PropertyController extends Controller {
     }
 
     public function verify(PropertyRequest $request): JsonResponse {
-        $data = Property::findOrFail($request->id);
-        $verified = $data->verified;
-        $data->verified = $verified ? 0 : 1;
-        $data->save();
+        $property = Property::findOrFail($request->id);
+        $verified = $property->verified;
+        $property->verified = $verified ? 0 : 1;
+        $property->verified_at = $verified ? null : now();
+        $property->save();
         return response()->json(['success' => true]);
     }
 
-    protected function uploadImages($request, Property $property): void {
+    protected function uploadImages(PropertyRequest $request, Property $property): void {
         if($request->file('images')) {
             foreach($request->file('images') as $image) {
                 $propertyImage = new PropertyImage;
@@ -154,5 +119,34 @@ class PropertyController extends Controller {
                 $propertyImage->save();
             }
         }
+    }
+
+    protected function setSlug(PropertyRequest $request, Property $property): void {
+        if(Property::whereSlug(Str::slug($request->title))->exists()) {
+            $count = Property::whereSlug('like' . Str::slug($request->title) . '-%')->count();
+            $property->slug = Str::slug($request->title) . '-' . ($count + 1);
+        } else {
+            $property->slug = Str::slug($request->title);
+        }
+    }
+
+    protected function setData(PropertyRequest $request, Property $property): void {
+        $property->title = $request->title;
+        $property->description = $request->description;
+        $property->address = $request->address;
+        $property->city = $request->city;
+        $property->region = $request->region;
+        $property->area = $request->area;
+        $property->floor = $request->floor;
+        $property->bedroom = $request->bedroom;
+        $property->bathroom = $request->bathroom;
+        $property->garage = $request->garage;
+        $property->garage_size = $request->garage_size;
+        $property->year = $request->year;
+        $property->status = $request->status ? 1 : 0;
+        $property->sale_type = $request->sale_type ? 1 : 0;
+        $property->type = $request->type ? 1 : 0;
+        $property->price = $request->price;
+        $property->category_id = $request->category_id;
     }
 }

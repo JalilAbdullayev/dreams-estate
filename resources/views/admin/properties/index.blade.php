@@ -53,7 +53,7 @@
                 <tr id="{{ $property->id }}">
                     @if(auth()->user()->isAdmin())
                         <td>
-                            {{ $property->user()->first()->name }}
+                            {{ $property->user->name }}
                         </td>
                     @endif
                     <td>

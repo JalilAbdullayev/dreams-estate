@@ -14,9 +14,9 @@
     <meta name="twitter:description" content="@yield('description', $settings->description)"/>
     <meta name="twitter:image" content="@yield('image', asset("storage/settings/$settings->logo"))"/>
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image:alt" content="{{ $settings->title }}"/>
+    <meta name="twitter:image:alt" content="@yield('title', $settings->title)"/>
     <title>
-        @yield('title', 'Dreams Estate')
+        @yield('title', $settings->title)
     </title>
     <link rel="icon" href="{{ asset("storage/settings/$settings->favicon") }}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -44,5 +44,4 @@
 <script src="{{ asset('front/slick/slick.min.js')}}"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
-
 </html>
