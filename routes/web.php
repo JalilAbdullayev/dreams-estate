@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\PropertyImageController;
@@ -22,6 +23,8 @@ Route::controller(SiteController::class)->group(function() {
     Route::get('property/{slug}', 'property')->name('property');
     Route::get('sales', 'sales')->name('sales');
 });
+
+Route::post('send', [MessageController::class, 'store'])->name('send');
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', AdminController::class)->name('index');
@@ -59,12 +62,19 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
         });
 
         Route::post('properties/verify', [PropertyController::class, 'verify'])->name('properties.verify');
+
+        Route::controller(MessageController::class)->name('messages.')->prefix('messages')->group(function() {
+            Route::get('/', 'index')->name('index');
+            Route::get('{id}', 'show')->name('show');
+            Route::delete('delete/{id}', 'delete')->name('delete');
+        });
     });
 
     Route::resources([
         'blog' => BlogController::class,
         'properties' => PropertyController::class
     ]);
+
     Route::name('blog.')->prefix('blog')->controller(BlogController::class)->group(function() {
         Route::post('sort', 'sort')->name('sort');
         Route::post('status', 'status')->name('status');

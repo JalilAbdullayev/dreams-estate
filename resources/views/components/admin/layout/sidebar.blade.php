@@ -44,32 +44,32 @@
                         <a class="waves-effect waves-dark" href="{{ route('admin.settings') }}" aria-expanded="false">
                             <i class="icons-Gears"></i>
                             <span class="hide-menu">
-                            @lang('Settings')
-                        </span>
+                                @lang('Settings')
+                            </span>
                         </a>
                     </li>
                     <li>
                         <a class="waves-effect waves-dark" href="{{ route('admin.contact') }}" aria-expanded="false">
                             <i class="icons-Phone-2"></i>
                             <span class="hide-menu">
-                            @lang('Contact')
-                        </span>
+                                @lang('Contact')
+                            </span>
                         </a>
                     </li>
                     <li>
                         <a class="waves-effect waves-dark" href="{{ route('admin.about') }}" aria-expanded="false">
                             <i class="icon-info"></i>
                             <span class="hide-menu">
-                            @lang('About')
-                        </span>
+                                @lang('About')
+                            </span>
                         </a>
                     </li>
                     <li>
                         <a class="waves-effect waves-dark" href="{{ route('admin.faq.index') }}" aria-expanded="false">
                             <i class="icon-question"></i>
                             <span class="hide-menu">
-                            @lang('FAQ')
-                        </span>
+                                @lang('FAQ')
+                            </span>
                         </a>
                     </li>
                     <li>
@@ -77,8 +77,17 @@
                            aria-expanded="false">
                             <i class="icon-folder"></i>
                             <span class="hide-menu">
-                            @lang('Categories')
-                        </span>
+                                @lang('Categories')
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-dark" href="{{ route('admin.messages.index') }}"
+                           aria-expanded="false">
+                            <i class="icon-envelope"></i>
+                            <span class="hide-menu">
+                                @lang('Messages')
+                            </span>
                         </a>
                     </li>
                 @endif
@@ -91,7 +100,8 @@
                     </a>
                 </li>
                 <li>
-                    <a class="waves-effect waves-dark" href="{{ route('admin.properties.index') }}" aria-expanded="false">
+                    <a class="waves-effect waves-dark" href="{{ route('admin.properties.index') }}"
+                       aria-expanded="false">
                         <i class="icons-Home"></i>
                         <span class="hide-menu">
                             @lang('Properties')
