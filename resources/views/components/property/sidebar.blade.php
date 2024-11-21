@@ -1,16 +1,11 @@
 @props(['user', 'property'])
 <div class="theiaStickySidebar">
     <div class="contact-btn">
-        <a href="">
-            <button>
-                <i class="fa-solid fa-info"></i>
-                Request Info
-            </button>
-            <button>
-                <i class="fa-solid fa-video"></i>
-                Schedule a Visit
-            </button>
-        </a>
+        <button type="button"
+                class="w-full hover:cursor-default bg-[#FD3358] text-white py-2.5 px-10 text-[15px] font-bold rounded-[5px]">
+            <i class="fa-solid fa-info"></i>
+            Request Info
+        </button>
     </div>
     <div class="user-active flex">
         <div class="user-name ml-2">
@@ -19,6 +14,9 @@
                     {{ $user->name }}
                 </a>
             </h4>
+            <a href="tel:{{ preg_replace('/[\s\(\)\-]+/', '', $user->phone) }}">
+                {{ $user->phone }}
+            </a><br/>
             <a href="mailto:{{ $user->email }}">
                 {{ $user->email }}
             </a>
@@ -59,22 +57,20 @@
             Send Email
         </button>
     </form>
-    @if($user->phone || $user->whatsapp)
-        <div class="flex justify-center gap-4">
-            @if($user->phone)
-                <a href="tel:{{ preg_replace('/[\s\(\)\-]+/', '', $contact->phone) }}">
-                    <button class="wp">
-                        <i class="fa-solid fa-phone me-2"></i> Call Us
-                    </button>
-                </a>
-            @endif
-            @if($user->whatsapp)
-                <a href="https://wa.me/{{ preg_replace('/[\s\(\)\-]+/', '', $contact->whatsapp) }}">
-                    <button class="wp">
-                        <i class="fa-brands fa-whatsapp me-2"></i> Whatsapp
-                    </button>
-                </a>
-            @endif
-        </div>
-    @endif
+    <div class="flex justify-center gap-4 side-contact pt-4">
+        <a href="tel:{{ preg_replace('/[\s\(\)\-]+/', '', $user->phone) }}">
+            <button
+                class="py-2.5 px-10 bg-[#F6F6F9] text-[#8A909A] border-0 font-bold rounded-[10px] hover:bg-[#6C60FE] hover:text-white duration-500">
+                <i class="fa-solid fa-phone me-2"></i> Call Us
+            </button>
+        </a>
+        @if($user->whatsapp)
+            <a href="https://wa.me/{{ preg_replace('/[\s\(\)\-]+/', '', $user->whatsapp) }}">
+                <button
+                    class="py-2.5 px-10 bg-[#F6F6F9] text-[#8A909A] border-0 font-bold rounded-[10px] hover:bg-[#6C60FE] hover:text-white duration-500">
+                    <i class="fa-brands fa-whatsapp me-2"></i> Whatsapp
+                </button>
+            </a>
+        @endif
+    </div>
 </div>
