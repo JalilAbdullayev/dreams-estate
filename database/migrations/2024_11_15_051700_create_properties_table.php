@@ -5,8 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-    public function up(): void {
-        Schema::create('properties', function(Blueprint $table) {
+    public function up(): void
+    {
+        Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('slug')->unique()->nullable();
@@ -27,8 +28,8 @@ return new class extends Migration {
             $table->string('area')->nullable();
             $table->string('garage_size')->nullable();
             $table->unsignedTinyInteger('floor')->default(1);
-            $table->boolean('type')->nullable();
-            $table->boolean('sale_type')->nullable();
+            $table->boolean('type')->nullable()->comment('0 - bina, 1 - heyet');
+            $table->boolean('sale_type')->nullable()->comment('0 - kiraye, 1 - satish');
             $table->boolean('status')->nullable();
             $table->boolean('verified')->default(0);
             $table->timestamps();
@@ -36,7 +37,8 @@ return new class extends Migration {
         });
     }
 
-    public function down(): void {
+    public function down(): void
+    {
         Schema::dropIfExists('properties');
     }
 };

@@ -15,7 +15,7 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SiteController;
 use App\Http\Middleware\AdminMiddleware;
 
-Route::controller(SiteController::class)->group(function() {
+Route::controller(SiteController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('contact', 'contact')->name('contact');
     Route::get('about', 'about')->name('about');
@@ -23,21 +23,22 @@ Route::controller(SiteController::class)->group(function() {
     Route::get('blog', 'blog')->name('blog');
     Route::get('property/{slug}', 'property')->name('property');
     Route::get('sales', 'sales')->name('sales');
+    Route::get('search', 'search')->name('search');
 });
 
 Route::post('send', [MessageController::class, 'store'])->name('send');
 Route::post('send_message', [CustomerMessageController::class, 'store'])->name('send_message');
 
-Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
+Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', AdminController::class)->name('index');
 
-    Route::middleware(AdminMiddleware::class)->group(function() {
-        Route::controller(SettingsController::class)->name('settings')->prefix('settings')->group(function() {
+    Route::middleware(AdminMiddleware::class)->group(function () {
+        Route::controller(SettingsController::class)->name('settings')->prefix('settings')->group(function () {
             Route::get('/', 'index');
             Route::post('/', 'update');
         });
 
-        Route::controller(ContactController::class)->name('contact')->prefix('contact')->group(function() {
+        Route::controller(ContactController::class)->name('contact')->prefix('contact')->group(function () {
             Route::get('/', 'index');
             Route::post('/', 'update');
         });
@@ -47,32 +48,32 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
             'categories' => CategoryController::class
         ]);
 
-        Route::controller(FAQController::class)->name('faq.')->prefix('faq')->group(function() {
+        Route::controller(FAQController::class)->name('faq.')->prefix('faq')->group(function () {
             Route::post('sort', 'sort')->name('sort');
             Route::post('status', 'status')->name('status');
         });
 
-        Route::controller(AboutController::class)->name('about')->prefix('about')->group(function() {
+        Route::controller(AboutController::class)->name('about')->prefix('about')->group(function () {
             Route::get('/', 'index');
             Route::post('/', 'update');
             Route::delete('image/{id}', 'deleteImage')->name('.delete-image');
         });
 
-        Route::controller(CategoryController::class)->name('categories.')->prefix('categories')->group(function() {
+        Route::controller(CategoryController::class)->name('categories.')->prefix('categories')->group(function () {
             Route::post('sort', 'sort')->name('sort');
             Route::post('status', 'status')->name('status');
         });
 
         Route::post('properties/verify', [PropertyController::class, 'verify'])->name('properties.verify');
 
-        Route::controller(MessageController::class)->name('messages.')->prefix('messages')->group(function() {
+        Route::controller(MessageController::class)->name('messages.')->prefix('messages')->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('{id}', 'show')->name('show');
             Route::delete('delete/{id}', 'delete')->name('delete');
         });
     });
 
-    Route::controller(CustomerMessageController::class)->name('customer_messages.')->prefix('customer_messages')->group(function() {
+    Route::controller(CustomerMessageController::class)->name('customer_messages.')->prefix('customer_messages')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('{id}', 'show')->name('show');
         Route::delete('delete/{id}', 'delete')->name('delete');
@@ -83,16 +84,16 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
         'properties' => PropertyController::class
     ]);
 
-    Route::name('blog.')->prefix('blog')->controller(BlogController::class)->group(function() {
+    Route::name('blog.')->prefix('blog')->controller(BlogController::class)->group(function () {
         Route::post('sort', 'sort')->name('sort');
         Route::post('status', 'status')->name('status');
         Route::delete('image/{blog}/{id}', 'deleteImage')->name('delete-image');
     });
 
-    Route::name('properties.')->prefix('properties')->group(function() {
+    Route::name('properties.')->prefix('properties')->group(function () {
         Route::post('status', [PropertyController::class, 'status'])->name('status');
 
-        Route::name('images.')->prefix('images')->controller(PropertyImageController::class)->group(function() {
+        Route::name('images.')->prefix('images')->controller(PropertyImageController::class)->group(function () {
             Route::get('{id}', 'index')->name('index');
             Route::post('status', 'status')->name('status');
             Route::post('sort', 'sort')->name('sort');
@@ -101,7 +102,7 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
         });
     });
 
-    Route::prefix('profile')->name('profile.')->controller(ProfileController::class)->group(function() {
+    Route::prefix('profile')->name('profile.')->controller(ProfileController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::patch('/', 'update')->name('update');
         Route::delete('/', 'destroy')->name('destroy');

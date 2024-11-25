@@ -7,14 +7,15 @@ use App\Models\About;
 use App\Traits\UploadImage;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 use JsonException;
 
-class AboutController extends Controller {
+class AboutController extends Controller
+{
     use UploadImage;
 
-    public function index(): View {
+    public function index(): View
+    {
         $about = About::first();
         return view('admin.about', compact('about'));
     }
@@ -22,7 +23,8 @@ class AboutController extends Controller {
     /**
      * @throws JsonException
      */
-    public function update(AboutRequest $request): RedirectResponse {
+    public function update(AboutRequest $request): RedirectResponse
+    {
         $about = About::first();
         $about->title = $request->title;
         $about->subtitle = $request->subtitle;
@@ -39,11 +41,12 @@ class AboutController extends Controller {
     /**
      * @throws JsonException
      */
-    public function deleteImage(string $id): JsonResponse {
+    public function deleteImage(string $id): JsonResponse
+    {
         $about = About::first();
         $images = json_decode($about->images, true, 512, JSON_THROW_ON_ERROR);
-        foreach($images as $key => $image) {
-            if($image['id'] === $id) {
+        foreach ($images as $key => $image) {
+            if ($image['id'] === $id) {
                 unset($images[$key]);
             }
         }
