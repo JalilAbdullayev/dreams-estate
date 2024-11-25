@@ -133,6 +133,8 @@ class PropertyController extends Controller {
     protected function setData(PropertyRequest $request, Property $property): void {
         $property->title = $request->title;
         $property->description = $request->description;
+        $property->keywords = $request->keywords;
+        $property->text = $request->text;
         $property->address = $request->address;
         $property->city = $request->city;
         $property->region = $request->region;

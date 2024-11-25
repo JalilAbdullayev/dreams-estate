@@ -5,7 +5,7 @@
     <x-home.banner/>
     <x-home.sales/>
     <x-home.services/>
-    <x-home.testimonials/>
+    {{-- <x-home.testimonials/> --}}
     @if(FAQ::count() > 0)
         <x-home.faq/>
     @endif

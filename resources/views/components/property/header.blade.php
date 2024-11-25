@@ -1,7 +1,7 @@
 @props(['property'])
 @use(Carbon\Carbon)
 <section class="buy-detailview bg-[#f7f6ff] py-20">
-    <div class="page-head max-w-screen-xl mx-auto flex justify-between">
+    <div class="flex justify-between max-w-screen-xl mx-auto page-head">
         <div class="buy-btn">
             <div class="flex">
                 <div class="buy">
@@ -14,7 +14,6 @@
                 <h1>
                     {{ $property->title }}
                 </h1>
-                <img src="{{ asset('front/img/location-icon.svg')}}" class="mt-4 ml-2" alt=""/>
             </div>
             <div>
                 <p>
@@ -27,15 +26,15 @@
             </div>
         </div>
         <div class="latest-update">
-            <div class="flex flex-col justify-end items-end">
+            <div class="flex flex-col items-end justify-end">
                 <h5>
-                    Last Updated on: {{ Carbon::parse($property->verified_at)->format('j M Y') }}
+                    Last Updated on: {{ Carbon::parse($property->updated_at)->format('j M Y') }}
                 </h5>
                 <p>
                     {{ $property->price }}
                 </p>
             </div>
-            <ul class="other-pages flex ">
+            <ul class="flex other-pages ">
                 <li class="me-3">
                     <a href="javascript:void(0);">
                         <i class="fa-solid fa-share"></i> Share

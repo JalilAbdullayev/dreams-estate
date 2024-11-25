@@ -72,8 +72,8 @@ class SiteController extends Controller
             $properties = $properties->where('sale_type', $query['sale_type']);
         }
 
-        if (isset($query['min_price'], $query['max_price'])) {
-            $properties = $properties->whereBetween('price', [$query['min_price'], $query['max_price']]);
+        if (isset($query['max_price'])) {
+            $properties = $properties->whereBetween('price', [$query['min_price'] ?? 0, $query['max_price']]);
         }
 
         $properties = $properties->get();
