@@ -18,11 +18,13 @@
     <section class="about-counter-sec mt-12">
         <div class="max-w-screen-xl mx-auto">
             <div class="about-listing-img flex justify-between">
-                @foreach(json_decode($about->images, false, 512, JSON_THROW_ON_ERROR) as $image)
-                    <div class="about-listing">
-                        <img src="{{ asset("storage/about/$image->image") }}" alt="{{ $image->image }}"/>
-                    </div>
-                @endforeach
+                @if($about->images)
+                    @foreach(json_decode($about->images, false, 512, JSON_THROW_ON_ERROR) as $image)
+                        <div class="about-listing">
+                            <img src="{{ asset("storage/about/$image->image") }}" alt="{{ $image->image }}"/>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

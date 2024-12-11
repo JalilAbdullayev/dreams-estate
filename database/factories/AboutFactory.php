@@ -14,7 +14,6 @@ class AboutFactory extends Factory {
             'title' => $this->faker->word(),
             'subtitle' => $this->faker->word(),
             'text' => $this->faker->text(),
-            'images' => $this->faker->words(),
             'section_title' => $this->faker->word(),
             'section_text' => $this->faker->text(),
             'section_image' => $this->faker->word(),

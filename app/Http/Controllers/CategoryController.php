@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Traits\SetData;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
@@ -72,7 +73,7 @@ class CategoryController extends Controller {
         return response()->json(['success' => true]);
     }
 
-    public function status(CategoryRequest $request): void {
+    public function status(Request $request): void {
         $this->changeStatus($request, Category::class);
     }
 

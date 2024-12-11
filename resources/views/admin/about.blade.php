@@ -1,9 +1,9 @@
 @extends('admin.layouts.master')
 @section('title', __('About'))
 @push('css')
-    <link rel="stylesheet" href="{{ asset('back/node_modules/dropify/dist/css/dropify.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}" />
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}" />
+    <link rel="stylesheet" href="{{ asset('back/node_modules/dropify/dist/css/dropify.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}"/>
     <style>
         textarea {
             display: block;
@@ -13,90 +13,88 @@
 @endpush
 @section('content')
     <!-- Bread crumb -->
-    <x-admin.layout.breadcrumb />
+    <x-admin.layout.breadcrumb/>
     <!-- End Bread crumb -->
     <form class="card" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="card-body">
             <div class="mb-3 form-floating">
                 <input type="text" class="form-control" name="title" id="title" placeholder="@lang('Title')"
-                    required maxlength="255" value="{{ $about->title }}" />
+                       required maxlength="255" value="{{ $about->title }}"/>
                 <label for="title" class="form-label text-white-50">
                     @lang('Title')
                 </label>
             </div>
             @error('title')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
             @enderror
             <div class="mb-3 form-floating">
                 <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="@lang('Subtitle')"
-                    required maxlength="255" value="{{ $about->subtitle }}" />
+                       required maxlength="255" value="{{ $about->subtitle }}"/>
                 <label for="subtitle" class="form-label text-white-50">
                     @lang('Subtitle')
                 </label>
             </div>
             @error('subtitle')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
             @enderror
             <div class="mb-3">
                 <label for="text" class="form-label text-white-50">
                     @lang('Text')
                 </label>
                 <textarea class="form-control ckeditor" name="text" id="text" rows="5" placeholder="@lang('Text')"
-                    required maxlength="255">{{ $about->text }}</textarea>
+                          required maxlength="255">{{ $about->text }}</textarea>
             </div>
             @error('text')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
             @enderror
             <div class="mb-3 form-floating">
                 <input type="text" class="form-control" name="section_title" id="section_title" required
-                    placeholder="@lang('Section title')" maxlength="255" value="{{ $about->section_title }}" />
+                       placeholder="@lang('Section title')" maxlength="255" value="{{ $about->section_title }}"/>
                 <label for="section_title" class="form-label text-white-50">
                     @lang('Section title')
                 </label>
             </div>
             @error('title')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
             @enderror
             <div class="mb-3">
                 <label for="section_text" class="form-label text-white-50">
                     @lang('Section text')
                 </label>
                 <textarea class="form-control ckeditor" name="section_text" id="section_text" required rows="5"
-                    placeholder="@lang('Section text')">{{ $about->section_text }}</textarea>
+                          placeholder="@lang('Section text')">{{ $about->section_text }}</textarea>
             </div>
             @error('section_text')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
             @enderror
             <div class="mb-3">
                 <label for="images" class="form-label text-white-50">
                     Images
                 </label>
-                <input type="file" name="images[]" id="images" class="form-control" multiple accept="image/*" />
+                <input type="file" name="images[]" id="images" class="form-control" multiple accept="image/*"/>
             </div>
             @error('images')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
             @enderror
-            @if (
-                $about->images &&
-                    is_array(json_decode($about->images, false, 512, JSON_THROW_ON_ERROR)) &&
+            @if ($about->images && is_array(json_decode($about->images, false, 512, JSON_THROW_ON_ERROR)) &&
                     count(json_decode($about->images, false, 512, JSON_THROW_ON_ERROR)) > 0)
                 <div class="row justify-content-center align-items-end">
                     @foreach (json_decode($about->images, false, 512, JSON_THROW_ON_ERROR) as $image)
                         <div class="text-center col-lg-3 col-md-2" id="{{ $image->id }}">
-                            <img src="{{ asset("storage/about/$image->image") }}" alt="about" class="mb-3 img-fluid" />
+                            <img src="{{ asset("storage/about/$image->image") }}" alt="about" class="mb-3 img-fluid"/>
                             <button class="btn btn-danger" id="{{ $image->id }}">
                                 Delete Image
                             </button>
@@ -112,21 +110,21 @@
                 </label>
             </div>
             @error('section_status')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
             @enderror
             <div class="mb-3">
                 <label for="section_image" class="form-label text-white-50">
                     @lang('Section image')
                 </label>
                 <input type="file" name="section_image" id="section_image" class="dropify" data-show-remove="false"
-                    accept="image/*" data-default-file="{{ asset("storage/about/$about->section_image") }}" />
+                       accept="image/*" data-default-file="{{ asset("storage/about/$about->section_image") }}"/>
             </div>
             @error('section_image')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
+            <div class="alert alert-danger">
+                {{ $message }}
+            </div>
             @enderror
             <button type="submit" class="text-white btn w-100 btn-primary">
                 @lang('Save')

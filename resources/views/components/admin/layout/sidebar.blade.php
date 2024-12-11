@@ -11,7 +11,7 @@
                     </a>
                     <div class="dropdown-menu animated flipInY">
                         <!-- text-->
-                        <a href="" class="dropdown-item">
+                        <a href="{{ route('admin.profile.index') }}" class="dropdown-item">
                             <i class="ti-user"></i> @lang('Profile')
                         </a>
                         <!-- text-->
