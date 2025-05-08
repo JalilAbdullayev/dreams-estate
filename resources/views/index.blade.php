@@ -13,5 +13,5 @@
     @if(Blog::count() > 0)
         <x-home.blog/>
     @endif
-    <x-home.newsletter/>
+    {{-- <x-home.newsletter/> --}}
 @endsection

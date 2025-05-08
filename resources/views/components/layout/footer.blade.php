@@ -23,12 +23,11 @@
                     </ul>
                 </div>
             </div>
-            <div data-aos-duration="1300" data-aos="fade-left" class="flex footer-widget-list sm:grid-cols-3">
+            <div data-aos-duration="1300" data-aos="fade-left" class="grid footer-widget-list sm:grid-cols-3 gap-4">
                 <div class="me-12">
-                    <h2 class="mb-6 text-white uppercase">Quick Links</h2>
-                    <ul>
+                    <ul class="[&>li]:mb-2">
                         @foreach ($links as $link)
-                            <li class="mb-4">
+                            <li>
                                 <a href="{{ route($link['url']) }}" @class(['text-[#FCAF3D]' => Route::is($link['url'])])>
                                     <span>></span> {{ $link['name'] }}
                                 </a>
@@ -37,40 +36,73 @@
                     </ul>
                 </div>
                 <div>
-                    <h2 class="mb-6 text-white uppercase">Explore</h2>
-                    <ul>
-                        <li class="mb-4">
+                    <ul class="[&>li]:mb-2">
+                        <li>
+                            <a href="{{ route('sales') }}">
+                                <span>
+                                    >
+                                </span> Satış
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('sales') }}?sale_type=0">
                                 <span>
                                     >
-                                </span> Rent Property
+                                </span> Kirayə Evlər
                             </a>
                         </li>
-                        <li class="mb-4">
+                        <li>
                             <a href="{{ route('sales') }}?sale_type=1">
                                 <span>
                                     >
-                                </span> Buy Property
+                                </span> Ev Al
                             </a>
                         </li>
                         @guest
-                            <li class="mb-4">
+                            <li>
                                 <a href="{{ route('login') }}">
                                     <span>
                                         >
-                                    </span> Sign In
+                                    </span> Daxil ol
                                 </a>
                             </li>
-                            <li class="mb-4">
+                            <li>
                                 <a href="{{ route('register') }}">
                                     <span>
                                         >
-                                    </span> Sign Up
+                                    </span> Qeydiyyat
                                 </a>
                             </li>
                         @endguest
                     </ul>
                 </div>
+                @auth
+                    <div>
+                        <ul class="[&>li]:mb-2">
+                            <li>
+                                <a href="{{ route('admin.profile.index') }}">
+                                    <span>
+                                        >
+                                    </span> Profilim
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.properties.index') }}">
+                                    <span>
+                                        >
+                                    </span> Ev Sat
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.customer_messages.index') }}">
+                                    <span>
+                                        >
+                                    </span> Mesajlar
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                @endauth
             </div>
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
@@ -80,7 +112,7 @@
                     - {{ date('Y') }}
                 @endif <a href="{{ route('home') }}" class="hover:underline">
                     {{ $settings->title }}
-                </a>. All Rights Reserved.
+                </a>. Bütün hüquqları qorunur.
             </span>
             <div class="flex items-center mt-4 company-logo sm:justify-center sm:mt-0">
                 <p>

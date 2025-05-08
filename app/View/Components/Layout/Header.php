@@ -6,25 +6,28 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Header extends Component {
+class Header extends Component
+{
     /**
      * Create a new component instance.
      */
-    public function __construct() {
+    public function __construct()
+    {
         //
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): View|Closure|string {
+    public function render(): View|Closure|string
+    {
         $links = [
-            ['name' => 'Home', 'url' => 'home'],
-            ['name' => 'Sales', 'url' => 'sales'],
-            ['name' => 'Blog', 'url' => 'blog'],
-            ['name' => 'Contact', 'url' => 'contact'],
-            ['name' => 'About', 'url' => 'about'],
-            ['name' => 'FAQ', 'url' => 'faq'],
+            ['name' => 'Ana Səhifə', 'url' => 'home'],
+            ['name' => 'Satış', 'url' => 'sales'],
+            ['name' => 'Bloq', 'url' => 'blog'],
+            ['name' => 'Əlaqə', 'url' => 'contact'],
+            ['name' => 'Haqqımızda', 'url' => 'about'],
+            ['name' => 'TVS', 'url' => 'faq'],
         ];
         return view('components.layout.header', compact('links'));
     }

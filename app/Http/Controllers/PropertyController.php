@@ -61,9 +61,6 @@ class PropertyController extends Controller {
      * Show the form for editing the specified resource.
      */
     public function edit(Property $property): View {
-        if(auth()->user()->cannot('update', $property)) {
-            abort(403);
-        }
         $categories = Category::active()->get();
         return view('admin.properties.edit', compact('property', 'categories'));
     }
@@ -72,9 +69,6 @@ class PropertyController extends Controller {
      * Update the specified resource in storage.
      */
     public function update(PropertyRequest $request, Property $property): RedirectResponse {
-        if(auth()->user()->cannot('update', $property)) {
-            abort(403);
-        }
         $this->setData($request, $property);
         if($property->title !== $request->title) {
             $this->setSlug($request, $property);

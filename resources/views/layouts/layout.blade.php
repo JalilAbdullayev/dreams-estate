@@ -6,16 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="@yield('author', $settings->author)" />
+    <meta name="description" content="@yield('description', $settings->description)" />
+    <meta name="keywords" content="@yield('keywords', $settings->keywords)" />
     <meta property="og:title" content="@yield('title', $settings->title)" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:image" content="@yield('image', asset("storage/settings/$settings->logo"))" />
     <meta property="og:site_name" content="{{ $settings->title }}" />
+    <meta property="og:description" content="@yield('description', $settings->description)" />
+    <meta property="og:see_also" content="{{ route('home') }}" />
+    <meta name="twitter:url" content="{{ url()->current() }}" />
     <meta name="twitter:title" content="@yield('title', $settings->title)" />
     <meta name="twitter:description" content="@yield('description', $settings->description)" />
     <meta name="twitter:image" content="@yield('image', asset("storage/settings/$settings->logo"))" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image:alt" content="@yield('title', $settings->title)" />
+    <link rel="canonical" href="{{ url()->current() }}" />
     <title>
         @yield('title', $settings->title)
     </title>

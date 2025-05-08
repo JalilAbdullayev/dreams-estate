@@ -1,21 +1,21 @@
 @use(Carbon\Carbon)
 <section class="sales py-12 bg-[#f7f6ff]">
     <div class="max-w-screen-xl mx-auto">
-        <div data-aos-duration="1300" data-aos="fade-down" class="flex flex-col items-center justify-center start">
+        <div data-aos-duration="1300" data-aos="fade-down" class="flex flex-col items-center justify-center start mb-7">
             <h2 class="mt-12">Featured Properties for Rent</h2>
             <div class="flex mt-3">
                 <div class="w-4 h-1.5 mr-2 bg-[#fd3358] rounded-[30px]"></div>
                 <div class="w-12 h-1.5 bg-[#fd3358] rounded-[30px]"></div>
             </div>
             <p class="mt-3">Hand-Picked selection of quality places</p>
-            <div class="flex justify-end slideButton m-7">
+            {{-- <div class="flex justify-end slideButton m-7">
                 <button class="prev mr-7" data-carousel-prev>
                     <i class="fa-solid fa-arrow-left"></i>
                 </button>
                 <button class="next" id="slider-button-right" data-carousel-next>
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
-            </div>
+            </div> --}}
         </div>
         <div data-aos-duration="1300" data-aos="fade-up" class="slide-container swiper">
             <div class="slide-contentTwo">
@@ -103,7 +103,7 @@
             <div class="flex justify-center mt-10 all">
                 <a href="{{ route('sales') }}">
                     <button>
-                        View All Properties
+                        Hamısına Bax
                     </button>
                 </a>
             </div>
